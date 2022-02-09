@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>큰시계</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="큰시계" />
+        <meta property="og:description" content="시누의 잡동사니 도구들" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/og_image.png">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16162c">
+        <link rel="apple-touch-icon-precomposed" href="https://sinusinu.github.io/favicon57.png">
+        <link rel="icon" href="https://sinusinu.github.io/favicon32.png">
+        <link rel="stylesheet" href="common.css">
+        <style>
+            body {
+                text-align: center;
+                overflow: hidden;
+                user-select: none;
+            }
+            #clock {
+                width: 100%;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 12vw;
+            }
+            .settings {
+                position: absolute;
+                top: 16px;
+                left: 16px;
+            }
+            #settings-pane {
+                visibility: hidden;
+            }
+            .btn-settings {
+                font-size: 32px;
+                cursor: pointer;
+                opacity: 30%;
+            }
+            table {
+                vertical-align: top;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="settings">
+            <tr>
+                <td><div class="btn-settings" onclick="toggleSettings()">⚙️</div></td>
+                <td><div id="settings-pane">
+                    <input type="checkbox" id="settings-force-locale" name="force-locale">
+                    <label for="force-locale">한국어로 표시 (한국어로 표시되지 않을 경우)</label>
+                </div></td>
+            </tr>
+        </table>
+        <div id="clock"></div>
+        <script>
+            var clk = document.getElementById("clock");
+            var st = document.getElementById("settings-pane");
+            var iid = setInterval(updateTime, 500);
+            
+            var forceLocale = document.getElementById("settings-force-locale");
+
+            function updateTime() {
+                var date = new Date();
+                if (forceLocale.checked) clk.innerText = date.toLocaleTimeString("ko-KR")
+                else clk.innerText = date.toLocaleTimeString()
+            }
+
+            function toggleSettings() {
+                if (st.style.visibility == "visible") st.style.visibility = "hidden";
+                else st.style.visibility = "visible";
+            }
+
+            updateTime();
+        </script>
+    </body>
+</html>

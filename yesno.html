@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>예니오</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="예니오" />
+        <meta property="og:description" content="시누의 잡동사니 도구들" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/og_image.png">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16162c">
+        <link rel="apple-touch-icon-precomposed" href="https://sinusinu.github.io/favicon57.png">
+        <link rel="icon" href="https://sinusinu.github.io/favicon32.png">
+        <link rel="stylesheet" href="common.css">
+        <style>
+            body {
+                text-align: center;
+                overflow: hidden;
+            }
+            .answer-container {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #answer {
+                font-size: 14vh;
+            }
+            .answer-anim {
+                animation: popin 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+            @keyframes popin {
+                from {
+                    color:rgb(144, 144, 255);
+                    transform: scale(0.9);
+                }
+
+                to {
+                    color:whitesmoke;
+                    transform: scale(1);
+                }
+            }
+            .answer-button {
+                position: absolute;
+                bottom: 32px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 5vh;
+                border-radius: 25px;
+                background-color: rgb(72, 72, 144);
+                padding: 14px 38px;
+                cursor: pointer;
+                user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="answer-container"><div id="answer">🎱</div></div>
+        <div class="answer-button" onclick="yesno()">예니오</div>
+        <script>
+            var answer = document.getElementById("answer")
+            function yesno() {
+                var rv = Math.random();
+                if (rv < 0.5) {
+                    answer.innerText = "예"
+                } else {
+                    answer.innerText = "아니오"
+                }
+                answer.classList.remove("answer-anim");
+                answer.offsetWidth;
+                answer.classList.add("answer-anim");
+            }
+        </script>
+    </body>
+</html>
