@@ -7,3 +7,8 @@
 | 빙글빙글화살표 | 화살표가 랜덤한 방향을 가리킵니다. |
 | 카운터 | 밝은 부분을 누르면 숫자가 올라갑니다. |
 | 원픽 | 여러 항목 중 하나를 랜덤으로 골라줍니다. |
+
+# 라이선스
+
+본 프로젝트는 Twemoji를 일부 변형하여 이미지 리소스로 사용하고 있습니다.<br/>
+[Twemoji](https://twemoji.twitter.com/)는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 하에 배포됩니다.
