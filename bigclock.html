@@ -51,8 +51,10 @@
             <tr>
                 <td><div class="btn-settings" onclick="toggleSettings()">⚙️</div></td>
                 <td><div id="settings-pane">
-                    <input type="checkbox" id="settings-force-locale" name="force-locale">
-                    <label for="force-locale">한국어로 표시 (한국어로 표시되지 않을 경우)</label>
+                    <input type="checkbox" id="settings-ampm" onclick="updateTime()" checked>
+                    <label for="settings-ampm">12시간제 사용</label>
+                    <input type="checkbox" id="settings-sec" onclick="updateTime()" checked>
+                    <label for="settings-sec">초 표시</label>
                 </div></td>
             </tr>
         </table>
@@ -61,13 +63,35 @@
             var clk = document.getElementById("clock");
             var st = document.getElementById("settings-pane");
             var iid = setInterval(updateTime, 500);
+
+            var stAmpm = document.getElementById("settings-ampm");
+            var stSec = document.getElementById("settings-sec");
             
             var forceLocale = document.getElementById("settings-force-locale");
 
             function updateTime() {
                 var date = new Date();
-                if (forceLocale.checked) clk.innerText = date.toLocaleTimeString("ko-KR")
-                else clk.innerText = date.toLocaleTimeString()
+
+                var str = ":" + zeropad(date.getMinutes());
+                if (stAmpm.checked) {
+                    if (date.getHours() < 12) {
+                        str = "오전 " + date.getHours() + str;
+                    } else if (date.getHours() == 12) {
+                        str = "오후 12" + str;
+                    } else {
+                        str = "오후 " + (date.getHours() - 12) + str;
+                    }
+                } else {
+                    str = date.getHours() + str;
+                }
+                if (stSec.checked) str = str + ":" + zeropad(date.getSeconds());
+                
+                clk.innerText = str;
+            }
+
+            function zeropad(num) {
+                var s = "00" + num;
+                return s.substr(s.length-2);
             }
 
             function toggleSettings() {
