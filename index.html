@@ -7,42 +7,70 @@
         <meta property="og:title" content="시누의 잡동사니 도구들" />
         <meta property="og:description" content="쓰레기같은 앱 필요했구나" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/og_image.png">
+        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/thumbnails/index.png">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16162c">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sinusinu.github.io/favicon144.png">
         <link rel="apple-touch-icon-precomposed" href="https://sinusinu.github.io/favicon57.png">
         <link rel="icon" href="https://sinusinu.github.io/favicon32.png">
         <link rel="stylesheet" href="common.css">
         <style>
             body {
                 margin: 16px;
+                text-align: center;
+                user-select: none;
+            }
+            .index-title {
                 font-size: 24px;
+            }
+            .index-subtitle {
+                font-size: 18px;
+            }
+            .index-table {
+                table-layout: fixed;
+                border-collapse: separate;
+                border: 2px solid rgb(48, 48, 94);
+                background-color: rgb(48, 48, 94);
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 16px;
+                font-size: 14px;
+            }
+            .index-table td {
+                border: 4px solid rgb(48, 48, 94);
+            }
+            .index-table a {
+                text-decoration: none;
+            }
+            .item-thumb {
+                width: 140px;
             }
             .copyright {
                 text-align: right;
                 position: absolute;
                 bottom: 16px;
                 right: 16px;
-                color: rgb(48, 48, 94);
-            }
-            ul {
-                list-style-position: inside;
-                padding: 0;
-            }
-            li {
-                padding-top: 12px;
+                color: rgb(64, 64, 124);
+                z-index: 1;
             }
         </style>
     </head>
     <body>
-        시누의 잡동사니 도구들<br/>
-        <a href="https://github.com/sinusinu/sinusinu.github.io/blob/main/README.md">이게뭐에요</a> / <a href="https://github.com/sinusinu/sinusinu.github.io">소스코드</a>
-        <ul>
-            <li><a href="bigclock.html">큰시계</a></li>
-            <li><a href="yesno.html">예니오</a></li>
-            <li><a href="spinarrow.html">빙글빙글화살표</a></li>
-            <li><a href="counter.html">카운터</a></li>
-            <li><a href="onepick.html">원픽</a></li>
-        </ul>
+        <div class="index-title">시누의 잡동사니 도구들</div>
+        <div class="index-subtitle"><a href="https://github.com/sinusinu/sinusinu.github.io/blob/main/README.md">이게뭐에요</a> ∣ <a href="https://github.com/sinusinu/sinusinu.github.io">소스코드</a></div>
+        <table class="index-table">
+            <tr>
+                <td><a href="bigclock.html"><img class="item-thumb" src="thumbnails/bigclock.png"><br/>큰시계</a></td>
+                <td><a href="yesno.html"><img class="item-thumb" src="thumbnails/yesno.png"><br/>예니오</a></td>
+            </tr>
+            <tr>
+                <td><a href="spinarrow.html"><img class="item-thumb" src="thumbnails/spinarrow.png"><br/>빙글빙글화살표</a></td>
+                <td><a href="counter.html"><img class="item-thumb" src="thumbnails/counter.png"><br/>카운터</a></td>
+            </tr>
+            <tr>
+                <td><a href="onepick.html"><img class="item-thumb" src="thumbnails/onepick.png"><br/>원픽</a></td>
+                <td></td>
+            </tr>
+        </table>
         <div class="copyright">© 2022 sinu</div>
     </body>
 </html>
