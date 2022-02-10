@@ -9,6 +9,7 @@
 | 원픽 | 여러 항목 중 하나를 랜덤으로 골라줍니다. |
 
 # 라이선스
+시누의 잡동사니 도구들은 WTFPL 하에 배포됩니다.
 
 본 프로젝트는 Twemoji를 일부 변형하여 이미지 리소스로 사용하고 있습니다.<br/>
-[Twemoji](https://twemoji.twitter.com/)는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 하에 배포됩니다.
+[Twemoji](https://twemoji.twitter.com/)는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 하에 사용되었습니다.
