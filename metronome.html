@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>메트로놈</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="메트로놈" />
+        <meta property="og:description" content="시누의 잡동사니 도구들" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/og_image.png">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16162c">
+        <link rel="apple-touch-icon-precomposed" href="https://sinusinu.github.io/favicon57.png">
+        <link rel="icon" href="https://sinusinu.github.io/favicon32.png">
+        <link rel="stylesheet" href="common.css">
+        <style>
+            .fullscreen {
+                position: absolute;
+                top: 16px;
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fullscreen">
+            <canvas id="drawarea"></canvas>
+        </div>
+        <script>
+            var canvas = document.getElementById("drawarea");
+            /** @type {CanvasRenderingContext2D} */
+            var ctx = canvas.getContext('2d');
+            
+            var cvSize = 0;
+            var cvTiming = performance.now();
+
+            var metroTime = 0.0;
+            
+            function render() {
+                var currentTiming = performance.now();
+                var delta = currentTiming - cvTiming;
+                cvTiming = currentTiming;
+                
+                // TODO: make this bpm-aware
+                metroTime += delta / 1000.0;
+
+                ctx.clearRect(0, 0, cvSize, cvSize);
+                ctx.lineWidth = 2;
+                
+                // white backdrop
+                //ctx.fillStyle = 'white';
+                //ctx.fillRect(0, 0, cvSize, cvSize);
+                
+                // upper background
+                ctx.fillStyle = '#777';
+                ctx.beginPath();
+                ctx.moveTo(0.38 * cvSize, 0.1 * cvSize);
+                ctx.lineTo(0.62 * cvSize, 0.1 * cvSize);
+                ctx.lineTo(0.79 * cvSize, 0.9 * cvSize);
+                ctx.lineTo(0.21 * cvSize, 0.9 * cvSize);
+                ctx.fill();
+                
+                // upper background outline
+                ctx.strokeStyle = '#444';
+                ctx.beginPath();
+                ctx.moveTo(0.38 * cvSize, 0.1 * cvSize);
+                ctx.lineTo(0.62 * cvSize, 0.1 * cvSize);
+                ctx.lineTo(0.79 * cvSize, 0.9 * cvSize);
+                ctx.lineTo(0.21 * cvSize, 0.9 * cvSize);
+                ctx.closePath();
+                ctx.stroke();
+
+                // pendulum guide background
+                ctx.strokeStyle = '#aaa';
+                ctx.lineWidth = 32;
+                ctx.beginPath();
+                ctx.moveTo(0.5 * cvSize, 0.7 * cvSize);
+                ctx.lineTo(0.5 * cvSize, 0.175 * cvSize);
+                ctx.stroke();
+
+                ctx.save();
+                // pendulum
+                ctx.translate(0.5 * cvSize, 0.7 * cvSize);
+                ctx.rotate(Math.sin(metroTime));
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 8;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(0, -0.5 * cvSize);
+                ctx.stroke();
+                ctx.restore();
+                
+                // bottom background
+                ctx.fillStyle = '#9E6C4C';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo((0.4 - (0.25 * 0.6)) * cvSize, 0.7 * cvSize);
+                ctx.lineTo((0.6 + (0.25 * 0.6)) * cvSize, 0.7 * cvSize);
+                ctx.lineTo(0.8 * cvSize, 0.9 * cvSize);
+                ctx.lineTo(0.2 * cvSize, 0.9 * cvSize);
+                ctx.fill();
+                
+                // bottom background outline
+                ctx.strokeStyle = 'black';
+                ctx.beginPath();
+                ctx.moveTo((0.4 - (0.25 * 0.6)) * cvSize, 0.7 * cvSize);
+                ctx.lineTo((0.6 + (0.25 * 0.6)) * cvSize, 0.7 * cvSize);
+                ctx.lineTo(0.8 * cvSize, 0.9 * cvSize);
+                ctx.lineTo(0.2 * cvSize, 0.9 * cvSize);
+                ctx.closePath();
+                ctx.stroke();
+                
+                window.requestAnimationFrame(render);
+            }
+
+            // window resize handler
+            var resizeCanvas = function() {
+                var vpWidth = window.innerWidth;
+                var vpHeight = window.innerHeight;
+
+                if (vpWidth > vpHeight) cvSize = vpHeight * 0.7;    // landscape
+                else cvSize = vpWidth * 0.7;                        // portrait
+
+                console.log("targeting size " + cvSize);
+
+                canvas.setAttribute("width", cvSize);
+                canvas.setAttribute("height", cvSize);
+            };
+            
+            // optimized resize event
+            // https://developer.mozilla.org/ko/docs/Web/API/Window/resize_event#requestanimationframe_customevent (minimized)
+            !function(e,n,i){i=i||window;var t=!1;i.addEventListener(e,function(){t||(t=!0,requestAnimationFrame(function(){i.dispatchEvent(new CustomEvent(n)),t=!1}))})}("resize","optimizedResize");
+            window.addEventListener("optimizedResize", resizeCanvas);
+
+            resizeCanvas();
+            window.requestAnimationFrame(render);
+        </script>
+    </body>
+</html>
