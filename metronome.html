@@ -7,7 +7,7 @@
         <meta property="og:title" content="메트로놈" />
         <meta property="og:description" content="시누의 잡동사니 도구들" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/og_image.png">
+        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/thumbnails/metronome.png">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16162c">
         <link rel="apple-touch-icon-precomposed" href="https://sinusinu.github.io/favicon57.png">
         <link rel="icon" href="https://sinusinu.github.io/favicon32.png">
@@ -23,37 +23,122 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                z-index: -1;
+            }
+            .top-panel {
+                position: absolute;
+                top: 24px;
+                left: 0;
+                right: 0; 
+                text-align: center;
+                color: rgb(130, 130, 200);
+                animation: fadeout 10s linear forwards;
+            }
+            @keyframes fadeout {
+                from { opacity: 100%; }
+                to { opacity: 0%; }
+            }
+            .bottom-panel {
+                position: absolute;
+                width: 300px;
+                bottom: 24px;
+                left: 0;
+                right: 0;
+                margin-left: auto; 
+                margin-right: auto; 
+                text-align: center;
+            }
+            input {
+                width: 300px;
+            }
+            .bpm-display-container {
+                font-size: 24px;
+                text-align: center;
+                padding-bottom: 8px;
+                user-select: none;
+            }
+            #bpm-display {
+                font-size: 48px;
+            }
+            .button {
+                text-align: center;
+                margin-top: 8px;
+                font-size: 24px;
+                border-radius: 25px;
+                background-color: rgb(72, 72, 144);
+                padding: 14px 38px;
+                cursor: pointer;
+                user-select: none;
             }
         </style>
     </head>
     <body>
+        <div class="top-panel">
+            ※ 브라우저의 정책 문제로 오디오가 올바르게 작동하지 않을 수 있습니다. 소리가 나지 않는다면 관련 설정을 확인해보세요.
+        </div>
         <div class="fullscreen">
             <canvas id="drawarea"></canvas>
         </div>
+        <div class="bottom-panel">
+            <div class="bpm-display-container"><span id="bpm-display">120</span>bpm</div>
+            <input id="bpm-slider" type="range" min="40" max="240" value="120" onpointermove="updateBpm()" onchange="updateBpm()" />
+            <div class="button" id="btn-toggle" onclick="toggleMetronome()">똑딱여요</div>
+        </div>
         <script>
+            var audioContext = null;
+            var gainNode = null;
+            var osc = null;
+
+            const freqHigh = 1046.5022612023945;
+            const freqLow = 523.2511306011972;
+            var isBeeping = false;
+
             var canvas = document.getElementById("drawarea");
             /** @type {CanvasRenderingContext2D} */
             var ctx = canvas.getContext('2d');
+
+            var bpmDisplay = document.getElementById("bpm-display");
+            var bpmSlider = document.getElementById("bpm-slider");
+            var btnToggle = document.getElementById("btn-toggle");
             
             var cvSize = 0;
             var cvTiming = performance.now();
 
             var metroTime = 0.0;
+            var metroTimeFloor = 0;
+
+            var bpm = 120;
+            var isRunning = false;
+            var justRan = false;
             
             function render() {
                 var currentTiming = performance.now();
                 var delta = currentTiming - cvTiming;
                 cvTiming = currentTiming;
                 
-                // TODO: make this bpm-aware
-                metroTime += delta / 1000.0;
+                if (isRunning) {
+                    //metroTime += delta / 1000.0 / (60.0 / bpm);
+                    metroTime += delta * bpm / 60000.0;
+                    var newFloor = Math.floor(metroTime);
+                    if (metroTimeFloor != newFloor) {
+                        // TODO: should ding here
+                        if (newFloor % 4) tryPlayBeep(freqLow);
+                        else tryPlayBeep(freqHigh);
+                        metroTimeFloor = newFloor;
+                    }
+
+                    if (isBeeping) {
+                        if (gainNode.gain.value < 0.2) {
+                            tryStopBeep();
+                        }
+                    } else if (justRan) {
+                        justRan = false;
+                        tryPlayBeep(freqHigh);
+                    }
+                }
 
                 ctx.clearRect(0, 0, cvSize, cvSize);
                 ctx.lineWidth = 2;
-                
-                // white backdrop
-                //ctx.fillStyle = 'white';
-                //ctx.fillRect(0, 0, cvSize, cvSize);
                 
                 // upper background
                 ctx.fillStyle = '#777';
@@ -62,6 +147,15 @@
                 ctx.lineTo(0.62 * cvSize, 0.1 * cvSize);
                 ctx.lineTo(0.79 * cvSize, 0.9 * cvSize);
                 ctx.lineTo(0.21 * cvSize, 0.9 * cvSize);
+                ctx.fill();
+                
+                // upper inner background
+                ctx.fillStyle = '#333';
+                ctx.beginPath();
+                ctx.moveTo(0.40 * cvSize, 0.12 * cvSize);
+                ctx.lineTo(0.60 * cvSize, 0.12 * cvSize);
+                ctx.lineTo(0.77 * cvSize, 0.9 * cvSize);
+                ctx.lineTo(0.23 * cvSize, 0.9 * cvSize);
                 ctx.fill();
                 
                 // upper background outline
@@ -85,11 +179,11 @@
                 ctx.save();
                 // pendulum
                 ctx.translate(0.5 * cvSize, 0.7 * cvSize);
-                ctx.rotate(Math.sin(metroTime));
+                ctx.rotate(Math.sin(metroTime * Math.PI));
                 ctx.strokeStyle = '#fff';
                 ctx.lineWidth = 8;
                 ctx.beginPath();
-                ctx.moveTo(0, 0);
+                ctx.moveTo(0, 0.1 * cvSize);
                 ctx.lineTo(0, -0.5 * cvSize);
                 ctx.stroke();
                 ctx.restore();
@@ -114,7 +208,62 @@
                 ctx.closePath();
                 ctx.stroke();
                 
-                window.requestAnimationFrame(render);
+                window.setTimeout(render, 10);
+            }
+
+            function tryPlayBeep(freq) {
+                if (osc !== null) return;
+                audioContext.resume().then(() => {
+                    gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+                    gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.05);
+                    osc = audioContext.createOscillator();
+                    osc.type = "triangle";
+                    osc.frequency.value = freq;
+                    osc.connect(gainNode);
+                    osc.start();
+                    isBeeping = true;
+                });
+            }
+
+            function tryStopBeep() {
+                if (osc === null) return;
+                try {
+                    audioContext.resume().then(() => {
+                        osc.stop();
+                        delete osc;
+                        osc = null;
+                        isBeeping = false;
+                    });
+                } catch {}
+            }
+
+            function updateBpm() {
+                bpmDisplay.innerText = bpmSlider.value;
+            }
+
+            function toggleMetronome() {
+                if (audioContext === null) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    gainNode = audioContext.createGain();
+                    gainNode.connect(audioContext.destination);
+                }
+                if (isRunning) {
+                    metroTime = 0;
+                    metroTimeFloor = 0;
+                    bpmSlider.style.visibility = 'visible';
+                    tryStopBeep();
+                    isRunning = false;
+                    btnToggle.innerText = "똑딱여요";
+                } else {
+                    var newBpm = bpmSlider.value;
+                    bpm = parseInt(newBpm);
+                    metroTime = 0;
+                    metroTimeFloor = 0;
+                    justRan = true;
+                    bpmSlider.style.visibility = 'hidden';
+                    isRunning = true;
+                    btnToggle.innerText = "멈춰요";
+                }
             }
 
             // window resize handler
@@ -122,10 +271,8 @@
                 var vpWidth = window.innerWidth;
                 var vpHeight = window.innerHeight;
 
-                if (vpWidth > vpHeight) cvSize = vpHeight * 0.7;    // landscape
-                else cvSize = vpWidth * 0.7;                        // portrait
-
-                console.log("targeting size " + cvSize);
+                if (vpWidth > vpHeight) cvSize = vpHeight * 0.6;    // landscape
+                else cvSize = vpWidth * 0.6;                        // portrait
 
                 canvas.setAttribute("width", cvSize);
                 canvas.setAttribute("height", cvSize);
@@ -137,7 +284,8 @@
             window.addEventListener("optimizedResize", resizeCanvas);
 
             resizeCanvas();
-            window.requestAnimationFrame(render);
+            render();
+            updateBpm();
         </script>
     </body>
 </html>
