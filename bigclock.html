@@ -55,6 +55,8 @@
                     <label for="settings-ampm">12시간제 사용</label>
                     <input type="checkbox" id="settings-sec" onclick="updateTime()" checked>
                     <label for="settings-sec">초 표시</label>
+                    <input type="checkbox" id="settings-ddf" onclick="updateDdf()">
+                    <label for="settings-ddf">어둡게</label>
                 </div></td>
             </tr>
         </table>
@@ -67,7 +69,7 @@
             var stAmpm = document.getElementById("settings-ampm");
             var stSec = document.getElementById("settings-sec");
             
-            var forceLocale = document.getElementById("settings-force-locale");
+            var ddf = document.getElementById("settings-ddf");
 
             function updateTime() {
                 var date = new Date();
@@ -98,6 +100,18 @@
                 if (st.style.visibility == "visible") st.style.visibility = "hidden";
                 else st.style.visibility = "visible";
             }
+
+            function updateDdf() {
+                if (ddf.checked) {
+                    document.body.style.background = 'black';
+                    clk.style.color = '#585858';
+                } else {
+                    document.body.style.background = 'rgb(22, 22, 44)';
+                    clk.style.color = null;
+                }
+            }
+
+            ddf.checked = false;
 
             updateTime();
         </script>
