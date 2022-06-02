@@ -42,6 +42,16 @@
                 from { opacity: 100%; }
                 to { opacity: 0%; }
             }
+            #visual-cue {
+                font-size: 32px;
+                visibility: hidden;
+            }
+            .vc-fo {
+                animation: fadeout 0.1s linear forwards;
+            }
+            #drawarea {
+                margin-bottom: 56px;
+            }
             .bottom-panel {
                 position: absolute;
                 width: 300px;
@@ -78,9 +88,16 @@
     </head>
     <body>
         <div class="top-panel">
+            <div class="settings">
+                <input type="checkbox" id="settings-audio" onclick="updateSettings()" checked>
+                <label for="settings-audio">소리 알림</label>
+                <input type="checkbox" id="settings-visual" onclick="updateSettings()" checked>
+                <label for="settings-visual">시각적 알림</label>
+            </div>
             <div class="notice-fo">※ 브라우저의 정책 문제로 오디오가 올바르게 작동하지 않을 수 있습니다. 소리가 나지 않는다면 관련 설정을 확인해보세요.</div>
         </div>
         <div class="fullscreen">
+            <div id="visual-cue">🟢</div>
             <canvas id="drawarea"></canvas>
         </div>
         <div class="bottom-panel">
@@ -104,6 +121,7 @@
             var bpmDisplay = document.getElementById("bpm-display");
             var bpmSlider = document.getElementById("bpm-slider");
             var btnToggle = document.getElementById("btn-toggle");
+            var visualCue = document.getElementById("visual-cue");
             
             var cvSize = 0;
             var cvTiming = performance.now();
@@ -114,6 +132,8 @@
             var bpm = 120;
             var isRunning = false;
 
+            var settingsAudio = document.getElementById("settings-audio");
+            var settingsVisual = document.getElementById("settings-visual");
             var indicateAudio = true;
             var indicateVisual = true;
             
@@ -127,8 +147,16 @@
                     metroTime += delta * bpm / 60000.0;
                     var newFloor = Math.floor(metroTime + 0.5);
                     if (metroTimeFloor != newFloor) {
-                        if ((newFloor - 1) % 4) tryPlayBeep(freqLow);
-                        else tryPlayBeep(freqHigh);
+                        if (indicateAudio) {
+                            if ((newFloor - 1) % 4) tryPlayBeep(freqLow);
+                            else tryPlayBeep(freqHigh);
+                        }
+                        if (indicateVisual) {
+                            visualCue.style.visibility = 'visible';
+                            window.setTimeout(() => {
+                                visualCue.style.visibility = 'hidden';
+                            }, 100);
+                        }
                         metroTimeFloor = newFloor;
                     }
 
@@ -272,7 +300,8 @@
             }
 
             function updateSettings() {
-                
+                indicateAudio = settingsAudio.checked;
+                indicateVisual = settingsVisual.checked;
             }
 
             // window resize handler
