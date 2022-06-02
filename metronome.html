@@ -90,9 +90,9 @@
     <body>
         <div class="top-panel">
             <div class="settings">
-                <input type="checkbox" id="settings-audio" onclick="updateSettings()" checked>
+                <input type="checkbox" id="settings-audio" onclick="updateSettings(true)" checked>
                 <label for="settings-audio">소리 알림</label>
-                <input type="checkbox" id="settings-visual" onclick="updateSettings()" checked>
+                <input type="checkbox" id="settings-visual" onclick="updateSettings(false)" checked>
                 <label for="settings-visual">시각적 알림</label>
             </div>
             <div class="notice-fo">※ 브라우저의 정책 문제로 오디오가 올바르게 작동하지 않을 수 있습니다. 소리가 나지 않는다면 관련 설정을 확인해보세요.</div>
@@ -137,6 +137,9 @@
             var settingsVisual = document.getElementById("settings-visual");
             var indicateAudio = true;
             var indicateVisual = true;
+
+            var isAndroid = false;
+            var isAndroidAudioWarningShown = false;
             
             function render() {
                 var currentTiming = performance.now();
@@ -300,9 +303,24 @@
                 }
             }
 
-            function updateSettings() {
+            function updateSettings(isAudio) {
+                if (isAndroid && !isAndroidAudioWarningShown) {
+                    alert("경고: Android 장치에서는 소리 알림이 정상 작동하지 않으며 사용을 권장하지 않습니다. 경고를 무시하고 소리 알림을 켜려면 옵션을 한 번 더 선택해주세요.");
+                    settingsAudio.checked = false;
+                    indicateAudio = false;
+                    isAndroidAudioWarningShown = true;
+                    return;
+                }
                 indicateAudio = settingsAudio.checked;
                 indicateVisual = settingsVisual.checked;
+            }
+
+            // disable audio cue by default on android devices
+            var ua = navigator.userAgent;
+            if (ua.indexOf("Android ") > -1) {
+                isAndroid = true;
+                settingsAudio.checked = false;
+                indicateAudio = false;
             }
 
             // window resize handler
