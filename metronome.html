@@ -29,8 +29,12 @@
                 position: absolute;
                 top: 24px;
                 left: 0;
-                right: 0; 
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
                 text-align: center;
+            }
+            .notice-fo {
                 color: rgb(130, 130, 200);
                 animation: fadeout 10s linear forwards;
             }
@@ -48,7 +52,7 @@
                 margin-right: auto; 
                 text-align: center;
             }
-            input {
+            input#bpm-slider {
                 width: 300px;
             }
             .bpm-display-container {
@@ -73,7 +77,9 @@
         </style>
     </head>
     <body>
-        <div class="top-panel">※ 브라우저의 정책 문제로 오디오가 올바르게 작동하지 않을 수 있습니다. 소리가 나지 않는다면 관련 설정을 확인해보세요.</div>
+        <div class="top-panel">
+            <div class="notice-fo">※ 브라우저의 정책 문제로 오디오가 올바르게 작동하지 않을 수 있습니다. 소리가 나지 않는다면 관련 설정을 확인해보세요.</div>
+        </div>
         <div class="fullscreen">
             <canvas id="drawarea"></canvas>
         </div>
@@ -107,7 +113,9 @@
 
             var bpm = 120;
             var isRunning = false;
-            var justRan = false;
+
+            var indicateAudio = true;
+            var indicateVisual = true;
             
             function render() {
                 var currentTiming = performance.now();
@@ -115,12 +123,11 @@
                 cvTiming = currentTiming;
                 
                 if (isRunning) {
-                    //metroTime += delta / 1000.0 / (60.0 / bpm);
+                    //metroTime += (delta / 1000.0) / (60.0 / bpm);
                     metroTime += delta * bpm / 60000.0;
-                    var newFloor = Math.floor(metroTime);
+                    var newFloor = Math.floor(metroTime + 0.5);
                     if (metroTimeFloor != newFloor) {
-                        // TODO: should ding here
-                        if (newFloor % 4) tryPlayBeep(freqLow);
+                        if ((newFloor - 1) % 4) tryPlayBeep(freqLow);
                         else tryPlayBeep(freqHigh);
                         metroTimeFloor = newFloor;
                     }
@@ -129,11 +136,12 @@
                         if (gainNode.gain.value < 0.2) {
                             tryStopBeep();
                         }
-                    } else if (justRan) {
-                        justRan = false;
-                        tryPlayBeep(freqHigh);
                     }
                 }
+
+                // TODO: make these static images generated on the fly on resize
+                //       it will be better performance-wise to draw 3 images
+                //       instead of all the vector path shenanigans
 
                 ctx.clearRect(0, 0, cvSize, cvSize);
                 ctx.lineWidth = 2;
@@ -224,13 +232,13 @@
             }
 
             function tryStopBeep() {
-                if (osc === null) return;
                 try {
                     audioContext.resume().then(() => {
+                        isBeeping = false;
+                        if (osc == null) return;
                         osc.stop();
                         delete osc;
                         osc = null;
-                        isBeeping = false;
                     });
                 } catch {}
             }
@@ -257,11 +265,14 @@
                     bpm = parseInt(newBpm);
                     metroTime = 0;
                     metroTimeFloor = 0;
-                    justRan = true;
                     bpmSlider.style.visibility = 'hidden';
                     isRunning = true;
                     btnToggle.innerText = "멈춰요";
                 }
+            }
+
+            function updateSettings() {
+                
             }
 
             // window resize handler
