@@ -248,6 +248,7 @@
                 ctx.closePath();
                 ctx.stroke();
                 
+                // wish I could use requestAnimationFrame here, but that doesn't work well when the browser is not rendering (e.g. is placed behind other window)
                 window.setTimeout(render, 10);
             }
 
