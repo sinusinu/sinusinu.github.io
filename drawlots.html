@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>제비뽑기</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="제비뽑기" />
+        <meta property="og:description" content="시누의 잡동사니 도구들" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" itemprop="image" content="https://sinusinu.github.io/thumbnails/drawlots.png">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16162c">
+        <link rel="apple-touch-icon-precomposed" href="https://sinusinu.github.io/favicon57.png">
+        <link rel="icon" href="https://sinusinu.github.io/favicon32.png">
+        <link rel="stylesheet" href="common.css">
+        <style>
+            body {
+                overflow: hidden;
+                text-align: center;
+            }
+            .fullscreen {
+                position: absolute;
+                top: 16px;
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .hidden {
+                position: absolute;
+                left: 0;
+                top: 0;
+                visibility: hidden;
+            }
+            .draw_item {
+                border: 1px white solid;
+                padding: 4px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .draw_item_name {
+                flex: 1 1 auto;
+            }
+            .draw_item_color {
+                flex: 0 1 auto;
+            }
+            .draw_item_amount {
+                flex: 0 1 auto;
+                text-align: right;
+                width: 64px;
+            }
+            input {
+                background: none;
+                border: none;
+                color: whitesmoke;
+                font-size: 24px;
+                min-width: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fullscreen" id="drawlots_settings">
+            <div id="draw_holder">
+                <div class="draw_item" id="draw_item_t">
+                    <input class="draw_item_name" id="draw_item_t_name" placeholder="제비 종류" type="text">
+                    <input class="draw_item_color" id="draw_item_t_color" type="color">
+                    <input class="draw_item_amount" id="draw_item_t_amount" type="text" value="1">
+                </div>
+            </div>
+        </div>
+        <div class="fullscreen" id="drawlots_draw" style="visibility: hidden;">
+
+        </div>
+    </body>
+</html>
