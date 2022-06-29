@@ -73,7 +73,47 @@
             </div>
         </div>
         <div class="fullscreen" id="drawlots_draw" style="visibility: hidden;">
-
+            
         </div>
+        <script>
+            // array of { name: "name", color: color, amount: 1 }
+            var drawSettings = [];
+            // array of { name: "name", color: color }
+            var drawBin = [];
+
+            function populateSettings() {
+                // TODO: (html) -> drawSettings
+            }
+
+            function validateSettings() {
+                try {
+                    for (const drawItem of drawSettings) {
+                        // TODO: do something with this
+                        drawItem[name];
+                        drawItem[color];
+                        drawItem[amount];
+                    }
+                } catch (e) {
+                    return false;
+                }
+                return true;
+            }
+
+            function populateBin() {
+                drawBin.clear();
+                try {
+                    for (const drawItem of drawSettings) {
+                        for (var i = 0; i < drawItem[amount]; i++) {
+                            drawBin.append({
+                                name: drawItem[name],
+                                color: drawItem[color]
+                            });
+                        }
+                    }
+                } catch (e) {
+                    // TODO: display error or something
+                }
+            }
+        </script>
     </body>
 </html>
