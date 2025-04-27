@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="favicon.png" type="image/png"/>
 		<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon"/>
-        <meta name="color-scheme" content="light dark">
         <title>시누의 싸이버스페이스</title>
         <style>
             html {
@@ -15,232 +14,62 @@
             }
             body {
                 margin: 0;
-                padding: 0;
+                padding: 16px;
+                width: 100%;
                 height: 100%;
-                overflow: hidden;
-                background: rgba(58, 110, 165, 1);
-                user-select: none;
-                font-family: "굴림", sans-serif;
-                font-size: 12px;
-            }
-            img {
-                image-rendering: pixelated;
-            }
-            @media (min-resolution: 1.001dppx) {
-                img {
-                    image-rendering: auto;
-                }
-            }
-            @media (max-resolution: 0.999dppx) {
-                img {
-                    image-rendering: auto;
-                }
-            }
-            .window {
-                position: absolute;
-                display: flex;
-                left: calc(50% - 158px);
-                top: calc(50% - 165px);
-                border-top: 1px solid rgb(212, 208, 200);
-                border-left: 1px solid rgb(212, 208, 200);
-                border-bottom: 1px solid rgb(64, 64, 64);
-                border-right: 1px solid rgb(64, 64, 64);
-                min-width: 316px;
-                min-height: 330px;
-                background: rgb(212, 208, 200);
-                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-                z-index: 10;
-            }
-            .window-border {
-                width: 100%;
-                overflow: auto;
-                border-top: 1px solid white;
-                border-left: 1px solid white;
-                border-bottom: 1px solid rgb(128, 128, 128);
-                border-right: 1px solid rgb(128, 128, 128);
-				padding: 1px;
-            }
-            .window-title {
-                width: 100%;
-                height: 18px;
-                font-weight: bold;
-                text-align: left;
-                background: linear-gradient(90deg,rgba(10, 36, 106, 1) 0%, rgba(166, 202, 240, 1) 100%);
-            }
-            .window-title-icon {
-                position:absolute;
-                top: 2px;
-                left: 4px;
-                display: inline-block;
-            }
-            .window-title-text {
-                position:absolute;
-                top: 4px;
-                left: 21px;
-                display: inline-block;
-                vertical-align: middle;
-                line-height: normal;
-                margin-left: 2px;
-            }
-            .window-content {
-                margin: 2px;
-                display: flex;
-                flex-direction: column;
-            }
-            .button {
-                border-top: 1px solid rgb(212, 208, 200);
-                border-left: 1px solid rgb(212, 208, 200);
-                border-bottom: 1px solid rgb(64, 64, 64);
-                border-right: 1px solid rgb(64, 64, 64);
-            }
-            .button-border {
-                padding: 8px;
-                border-top: 1px solid white;
-                border-left: 1px solid white;
-                border-bottom: 1px solid rgb(128, 128, 128);
-                border-right: 1px solid rgb(128, 128, 128);
-                display: flex;
+                overflow-x: hidden;
+                background: pink;
                 text-align: center;
-                justify-content: center;
+                font-size: 20px;
+                font-family: serif;
             }
-            .button:active {
-                border-bottom: 1px solid rgb(212, 208, 200);
-                border-right: 1px solid rgb(212, 208, 200);
-                border-top: 1px solid rgb(64, 64, 64);
-                border-left: 1px solid rgb(64, 64, 64);
-            }
-            .button-border:active {
-                border-bottom: 1px solid white;
-                border-right: 1px solid white;
-                border-top: 1px solid rgb(128, 128, 128);
-                border-left: 1px solid rgb(128, 128, 128);
-                padding-top: 9px;
-                padding-left: 9px;
-                padding-bottom: 7px;
-                padding-right: 7px;
-            }
-            .picturebox {
-                border-bottom: 2px solid white;
-                border-right: 2px solid white;
-                border-top: 2px solid rgb(128, 128, 128);
-                border-left: 2px solid rgb(128, 128, 128);
-                flex-shrink: 1;
+            table {
                 margin: 0 auto;
-                padding: 0;
-            }
-            .label {
-                padding: 4px;
+                max-width: 360px;
+                text-align: left;
             }
             .vspacer {
-                height: 4px;
+                height: 8px;
             }
-            .watermark {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                z-index: 0;
-            }
-            a {
-                text-decoration: none;
-                cursor: default;
-            }
-            .disclaimer {
-                position: absolute;
-				width: 100%;
-                top: 4px;
-				text-align: center;
+            button {
+                font-size: 20px;
             }
         </style>
     </head>
     <body>
-        <div class="disclaimer">
-            이 웹사이트는 PC에서 최적의 경험을 제공합니다.
-        </div>
-        <div class="window" id="window-test">
-            <div class="window-border">
-                <div class="window-title" id="window-title-test">
-                    <span class="window-title-icon"><img src="vb.webp" draggable="false"></span><span class="window-title-text"><img src="text-title.webp" alt="시누의 싸이버스페이스" style="width: 135px; height: 13px;" draggable="false"></span>
-                </div>
-                <div class="window-content">
-                    <div class="picturebox" style="width: 64px; height: 64px;">
-                        <img src="icon.webp" alt="고양이 대가리" draggable="false">
-                    </div>
-                    <div class="label">
-                        <img class="text-image" src="text-body-1.webp" alt="시누 / sinusinu
-
-주력 언어 / C#, Java, Javascript
-반쯤 하는 언어 / Python, Kotlin, C++
-좋아하는 플랫폼 / Windows, Android, Crossplatform
-관심분야 / 프론트엔드/UI, 게임, 웹, LLM
-
-반가워요!" style="width: 298px; height: 118px;" draggable="false">
-                    </div>
-                    <a href="https://github.com/sinusinu" draggable="false">
-                        <div class="button">
-                            <div class="button-border">
-                                <img class="text-image" src="text-button-github.webp" alt="시누의 GitHub" style="width: 77px; height: 13px;" draggable="false">
-                            </div>
-                        </div>
-                    </a>
-                    <div class="vspacer"></div>
-                    <a href="/blog/" draggable="false">
-                        <div class="button">
-                            <div class="button-border">
-                                <img class="text-image" src="text-button-blog.webp" alt="시누의 블로그" style="width: 76px; height: 13px;" draggable="false">
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/sinutools/" draggable="false">
-                    <div class="vspacer"></div>
-                        <div class="button">
-                            <div class="button-border">
-                                <img class="text-image" src="text-button-sinutools.webp" alt="시누의 잡동사니 도구들" style="width: 128px; height: 13px;" draggable="false">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="watermark">
-            <img src="watermark.webp" style="width: 208px; height: 60px;" draggable="false">
-        </div>
-        <script>
-            dragElement(document.getElementById("window-test"), document.getElementById("window-title-test"))
-
-            function dragElement(body, head) {
-                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-                head.onpointerdown = dragMouseDown;
-
-                function dragMouseDown(e) {
-                    e = e || window.event;
-                    e.preventDefault();
-                    // get the mouse cursor position at startup:
-                    pos3 = e.clientX;
-                    pos4 = e.clientY;
-                    document.onpointerup = closeDragElement;
-                    // call a function whenever the cursor moves:
-                    document.onpointermove = elementDrag;
-                }
-
-                function elementDrag(e) {
-                    e = e || window.event;
-                    e.preventDefault();
-                    // calculate the new cursor position:
-                    pos1 = pos3 - e.clientX;
-                    pos2 = pos4 - e.clientY;
-                    pos3 = e.clientX;
-                    pos4 = e.clientY;
-                    // set the element's new position:
-                    body.style.top = (body.offsetTop - pos2) + "px";
-                    body.style.left = (body.offsetLeft - pos1) + "px";
-                }
-
-                function closeDragElement() {
-                    // stop moving when mouse button is released:
-                    document.onpointerup = null;
-                    document.onpointermove = null;
-                }
-            }
-        </script>
+        <div><img src="title.png"></div>
+        <div><img src="subtitle.gif"></div>
+        <div><img src="icon.webp" alt="고양이 대가리"></div>
+        <div class="label">시누 / sinusinu</div>
+        <div class="vspacer"></div>
+        <table>
+            <tr>
+                <td>주력 언어</td>
+                <td>C#, Java, Javascript</td>
+            </tr>
+            <tr>
+                <td>반쯤 하는 언어</td>
+                <td>Python, Kotlin, C++</td>
+            </tr>
+            <tr>
+                <td>좋아하는 플랫폼</td>
+                <td>Windows, Android, Crossplatform</td>
+            </tr>
+            <tr>
+                <td>관심분야</td>
+                <td>프론트엔드/UI, 게임, 웹, LLM</td>
+            </tr>
+        </table>
+        <div class="vspacer"></div>
+        <div class="label">반가워요!</div>
+        <div class="vspacer"></div>
+        <div class="label">예쁜 웹사이트 만들었다가 모바일에서 제대로 안 떠서 열받은 상태에서 만든 페이지입ㄴ다 양해좀</div>
+        <div class="vspacer"></div>
+        <a href="https://github.com/sinusinu" draggable="false"><button>시누의 GitHub</button></a>
+        <div class="vspacer"></div>
+        <a href="/blog/" draggable="false"><button>시누의 블로그</button></a>
+        <div class="vspacer"></div>
+        <a href="/sinutools/" draggable="false"><button>시누의 잡동사니 도구들</button></a>
+        <div><img src="footer.gif"></div>
     </body>
 </html>
