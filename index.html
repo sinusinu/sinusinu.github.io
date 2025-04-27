@@ -26,14 +26,14 @@
             .window {
                 position: absolute;
                 display: flex;
-                left: calc(50% - 152px);
-                top: calc(50% - 72px);
+                left: calc(50% - 158px);
+                top: calc(50% - 165px);
                 border-top: 1px solid rgb(212, 208, 200);
                 border-left: 1px solid rgb(212, 208, 200);
                 border-bottom: 1px solid rgb(64, 64, 64);
                 border-right: 1px solid rgb(64, 64, 64);
-                min-width: 302px;
-                min-height: 143px;
+                min-width: 316px;
+                min-height: 330px;
                 background: rgb(212, 208, 200);
                 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
                 z-index: 10;
@@ -72,6 +72,8 @@
             }
             .window-content {
                 margin: 2px;
+                display: flex;
+                flex-direction: column;
             }
             .button {
                 border-top: 1px solid rgb(212, 208, 200);
@@ -85,6 +87,9 @@
                 border-left: 1px solid white;
                 border-bottom: 1px solid rgb(128, 128, 128);
                 border-right: 1px solid rgb(128, 128, 128);
+                display: flex;
+                text-align: center;
+                justify-content: center;
             }
             .button:active {
                 border-bottom: 1px solid rgb(212, 208, 200);
@@ -101,6 +106,15 @@
                 padding-left: 9px;
                 padding-bottom: 7px;
                 padding-right: 7px;
+            }
+            .picturebox {
+                border-bottom: 2px solid white;
+                border-right: 2px solid white;
+                border-top: 2px solid rgb(128, 128, 128);
+                border-left: 2px solid rgb(128, 128, 128);
+                flex-shrink: 1;
+                margin: 0 auto;
+                padding: 0;
             }
             .label {
                 padding: 4px;
@@ -128,7 +142,20 @@
                     <span class="window-title-icon"><img src="vb.png" draggable="false"></span><span class="window-title-text"><img src="text-title.png" alt="시누의 싸이버스페이스" style="width: 135px; height: 13px;" draggable="false"></span>
                 </div>
                 <div class="window-content">
-                    <div class="label"><img src="text-body.png" alt="임시 랜딩 페이지: 여기에 무엇을 넣으면 좋을지 고민 중입니다." style="width: 239px; height: 34px;" draggable="false"></div>
+                    <div class="picturebox" style="width: 64px; height: 64px;">
+                        <img src="icon.png" draggable="false">
+                    </div>
+                    <div class="label">
+                        <img src="text-body.png" style="width: 298px; height: 118px;" draggable="false">
+                    </div>
+                    <a href="https://github.com/sinusinu" draggable="false">
+                        <div class="button">
+                            <div class="button-border">
+                                <img src="text-button-github.png" alt="시누의 GitHub" style="width: 77px; height: 13px;" draggable="false">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="vspacer"></div>
                     <a href="/blog/" draggable="false">
                         <div class="button">
                             <div class="button-border">
