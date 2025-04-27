@@ -7,69 +7,126 @@
 		<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon"/>
         <title>시누의 싸이버스페이스</title>
         <style>
+            @font-face {
+                font-family: 'D2Coding';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }            
             html {
                 margin: 0;
                 padding: 0;
                 height: 100%;
             }
             body {
-                margin: 0;
-                padding: 16px;
                 width: 100%;
                 height: 100%;
                 overflow-x: hidden;
-                background: pink;
-                text-align: center;
+                background: black;
+                color: white;
+                font-family: 'D2Coding', monospace;
                 font-size: 20px;
-                font-family: serif;
+                line-height: 24px;
+                text-align: center;
+                user-select: none;
             }
-            table {
-                margin: 0 auto;
-                max-width: 360px;
-                text-align: left;
+            .ascii-art {
+                font-size: 4px;
+                line-height: 4px;
+                user-select: none;
+            }
+            a {
+                display: inline-block;
+                text-decoration: none;
+                color: black;
+                background-color: white;
+                padding: 4px 6px;
+            }
+            a:hover {
+                animation: link-blink step-start 1s infinite;
+            }
+            a:focus, a:active {
+                color: white;
+                background-color: black;
+                outline: none;
+                border: 2px white dotted;
+                padding: 2px 4px;
+            }
+            @keyframes link-blink {
+                0% {
+                    color: black;
+                    background-color: white;
+                }
+                50% {
+                    color: white;
+                    background-color: black;
+                }
+                100% {
+                    color: black;
+                    background-color: white;
+                }
             }
             .vspacer {
-                height: 8px;
+                height: 20px;
             }
-            button {
-                font-size: 20px;
+            summary {
+                display: inline-block;
+                text-decoration: none;
+                color: black;
+                background-color: white;
+                padding: 4px 6px;
+            }
+            summary:hover {
+                animation: link-blink step-start 1s infinite;
+            }
+            summary:focus, summary:active {
+                color: white;
+                background-color: black;
+                outline: none;
+                border: 2px white dotted;
+                padding: 2px 4px;
+            }
+            .cathead {
+                animation: teeter ease-in-out 1s infinite;
+            }
+            @keyframes teeter {
+                0% {
+                    rotate: -6deg;
+                }
+                50% {
+                    rotate: 6deg;
+                }
+                100% {
+                    rotate: -6deg;
+                }
             }
         </style>
     </head>
     <body>
-        <div><img src="title.png"></div>
-        <div><img src="subtitle.gif"></div>
-        <div><img src="icon.webp" alt="고양이 대가리"></div>
-        <div class="label">시누 / sinusinu</div>
+        <div class="label">시누의 싸이버스페이스</div>
         <div class="vspacer"></div>
-        <table>
-            <tr>
-                <td>주력 언어</td>
-                <td>C#, Java, Javascript</td>
-            </tr>
-            <tr>
-                <td>반쯤 하는 언어</td>
-                <td>Python, Kotlin, C++</td>
-            </tr>
-            <tr>
-                <td>좋아하는 플랫폼</td>
-                <td>Windows, Android, Crossplatform</td>
-            </tr>
-            <tr>
-                <td>관심분야</td>
-                <td>프론트엔드/UI, 게임, 웹, LLM</td>
-            </tr>
-        </table>
+        <div class="label"><img class="cathead" src="icon.webp" draggable="false"></div>
+        <div class="label">시누 (sinusinu)</div>
+        <div class="label">반가워요! 👋</div>
         <div class="vspacer"></div>
-        <div class="label">반가워요!</div>
+        <div>&lt; 주 사용 언어 &gt;</div>
+        <div>C#, Java, JavaScript</div>
         <div class="vspacer"></div>
-        <div class="label">예쁜 웹사이트 만들었다가 모바일에서 제대로 안 떠서 열받은 상태에서 만든 페이지입ㄴ다 양해좀</div>
+        <div>&lt; 반쯤 하는 언어 &gt;</div>
+        <div>Python, Kotlin, C++</div>
         <div class="vspacer"></div>
-        <a href="https://github.com/sinusinu" draggable="false"><button>시누의 GitHub</button></a>
+        <div>&lt; 좋아하는 플랫폼 &gt;</div>
+        <div>Windows, Android, Cross-platform</div>
         <div class="vspacer"></div>
-        <a href="/blog/" draggable="false"><button>시누의 블로그</button></a>
+        <div>&lt; 관심 분야 &gt;</div>
+        <div>프론트엔드/UI, 게임, 웹, LLM</div>
         <div class="vspacer"></div>
-        <a href="/sinutools/" draggable="false"><button>시누의 잡동사니 도구들</button></a>
-        <div><img src="footer.gif"></div>
+        <div>&lt; 링크 &gt;</div>
+        <div class="vspacer"></div>
+        <a href="https://github.com/sinusinu" draggable="false">시누의 GitHub</a>
+        <div class="vspacer"></div>
+        <a href="/blog/" draggable="false">시누의 블로그</a>
+        <div class="vspacer"></div>
+        <a href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a>
     </body>
 </html>
