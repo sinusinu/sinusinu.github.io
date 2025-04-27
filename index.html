@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="favicon.png" type="image/png"/>
 		<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon"/>
+        <meta name="color-scheme" content="light dark">
         <title>시누의 싸이버스페이스</title>
         <style>
             html {
@@ -17,7 +18,7 @@
                 padding: 0;
                 height: 100%;
                 overflow: hidden;
-                background: rgba(58, 110, 165, 1);
+                background: rgba(58, 110, 165, 1) !important;
                 user-select: none;
                 font-family: "굴림", sans-serif;
                 font-size: 12px;
@@ -40,32 +41,31 @@
                 display: flex;
                 left: calc(50% - 158px);
                 top: calc(50% - 165px);
-                border-top: 1px solid rgb(212, 208, 200);
-                border-left: 1px solid rgb(212, 208, 200);
-                border-bottom: 1px solid rgb(64, 64, 64);
-                border-right: 1px solid rgb(64, 64, 64);
+                border-top: 1px solid rgb(212, 208, 200) !important;
+                border-left: 1px solid rgb(212, 208, 200) !important;
+                border-bottom: 1px solid rgb(64, 64, 64) !important;
+                border-right: 1px solid rgb(64, 64, 64) !important;
                 min-width: 316px;
                 min-height: 330px;
-                background: rgb(212, 208, 200);
+                background: rgb(212, 208, 200) !important;
                 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
                 z-index: 10;
             }
             .window-border {
                 width: 100%;
                 overflow: auto;
-                border-top: 1px solid white;
-                border-left: 1px solid white;
-                border-bottom: 1px solid rgb(128, 128, 128);
-                border-right: 1px solid rgb(128, 128, 128);
+                border-top: 1px solid white !important;
+                border-left: 1px solid white !important;
+                border-bottom: 1px solid rgb(128, 128, 128) !important;
+                border-right: 1px solid rgb(128, 128, 128) !important;
 				padding: 1px;
             }
             .window-title {
                 width: 100%;
                 height: 18px;
                 font-weight: bold;
-                color: white;
                 text-align: left;
-                background: linear-gradient(90deg,rgba(10, 36, 106, 1) 0%, rgba(166, 202, 240, 1) 100%);
+                background: linear-gradient(90deg,rgba(10, 36, 106, 1) 0%, rgba(166, 202, 240, 1) 100%) !important;
             }
             .window-title-icon {
                 position:absolute;
@@ -88,42 +88,42 @@
                 flex-direction: column;
             }
             .button {
-                border-top: 1px solid rgb(212, 208, 200);
-                border-left: 1px solid rgb(212, 208, 200);
-                border-bottom: 1px solid rgb(64, 64, 64);
-                border-right: 1px solid rgb(64, 64, 64);
+                border-top: 1px solid rgb(212, 208, 200) !important;
+                border-left: 1px solid rgb(212, 208, 200) !important;
+                border-bottom: 1px solid rgb(64, 64, 64) !important;
+                border-right: 1px solid rgb(64, 64, 64) !important;
             }
             .button-border {
                 padding: 8px;
-                border-top: 1px solid white;
-                border-left: 1px solid white;
-                border-bottom: 1px solid rgb(128, 128, 128);
-                border-right: 1px solid rgb(128, 128, 128);
+                border-top: 1px solid white !important;
+                border-left: 1px solid white !important;
+                border-bottom: 1px solid rgb(128, 128, 128) !important;
+                border-right: 1px solid rgb(128, 128, 128) !important;
                 display: flex;
                 text-align: center;
                 justify-content: center;
             }
             .button:active {
-                border-bottom: 1px solid rgb(212, 208, 200);
-                border-right: 1px solid rgb(212, 208, 200);
-                border-top: 1px solid rgb(64, 64, 64);
-                border-left: 1px solid rgb(64, 64, 64);
+                border-bottom: 1px solid rgb(212, 208, 200) !important;
+                border-right: 1px solid rgb(212, 208, 200) !important;
+                border-top: 1px solid rgb(64, 64, 64) !important;
+                border-left: 1px solid rgb(64, 64, 64) !important;
             }
             .button-border:active {
-                border-bottom: 1px solid white;
-                border-right: 1px solid white;
-                border-top: 1px solid rgb(128, 128, 128);
-                border-left: 1px solid rgb(128, 128, 128);
+                border-bottom: 1px solid white !important;
+                border-right: 1px solid white !important;
+                border-top: 1px solid rgb(128, 128, 128) !important;
+                border-left: 1px solid rgb(128, 128, 128) !important;
                 padding-top: 9px;
                 padding-left: 9px;
                 padding-bottom: 7px;
                 padding-right: 7px;
             }
             .picturebox {
-                border-bottom: 2px solid white;
-                border-right: 2px solid white;
-                border-top: 2px solid rgb(128, 128, 128);
-                border-left: 2px solid rgb(128, 128, 128);
+                border-bottom: 2px solid white !important;
+                border-right: 2px solid white !important;
+                border-top: 2px solid rgb(128, 128, 128) !important;
+                border-left: 2px solid rgb(128, 128, 128) !important;
                 flex-shrink: 1;
                 margin: 0 auto;
                 padding: 0;
@@ -142,7 +142,6 @@
             }
             a {
                 text-decoration: none;
-                color: black;
                 cursor: default;
             }
         </style>
