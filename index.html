@@ -23,6 +23,19 @@
                 font-family: "굴림", sans-serif;
                 font-size: 12px;
             }
+            img {
+                image-rendering: pixelated;
+            }
+            @media (min-resolution: 1.001dppx) {
+                img {
+                    image-rendering: auto;
+                }
+            }
+            @media (max-resolution: 0.999dppx) {
+                img {
+                    image-rendering: auto;
+                }
+            }
             .window {
                 position: absolute;
                 display: flex;
