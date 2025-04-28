@@ -31,9 +31,11 @@
                 height: 100%;
             }
             body {
+                margin: 0;
+                padding: 0;
                 width: 100%;
                 height: 100%;
-                overflow-x: hidden;
+                overflow: hidden;
                 background: black;
                 color: white;
                 font-family: 'D2Coding', monospace;
@@ -43,6 +45,7 @@
                 user-select: none;
             }
             .container {
+                padding-top: 16px;
                 display: inline-block;
                 max-width: 320px;
                 text-align: left;
@@ -154,12 +157,19 @@
         </div>
         <script>
             var cvNames = [ "--hshake-lpad-0", "--hshake-lpad-1", "--hshake-lpad-2", "--hshake-lpad-3", "--hshake-lpad-4", "--hshake-lpad-5", "--hshake-lpad-6", "--hshake-lpad-7", "--hshake-lpad-8", "--hshake-lpad-9" ];
+            var cvShiftNames = []; var i = Math.floor(Math.random() * cvNames.length); for (var j = 0; j < cvNames.length; j++) cvShiftNames.push(cvNames[(j + i) % cvNames.length]);
             
             var hshakeGlobalValue = 0.0;
             var last = Date.now();
             
-            var hshakeVelocity = 1.25;
-            var hshakeMagnitude = 2;
+            const hshakeVelocitySource = 4;
+            const hshakeMagnitudeSource = 20;
+            const hshakeVelocityTarget = 1.25;
+            const hshakeMagnitudeTarget = 2.5;
+            var hshakeVelocity = hshakeVelocitySource;
+            var hshakeMagnitude = hshakeMagnitudeSource;
+            var hshakeIntroEffectTimer = 1;
+            var hshakeIntroEffect = true;
 
             function update() {
                 // calc deltaTime
@@ -167,14 +177,28 @@
                 var deltaTime = (now - last) / 1000;
                 last = now;
 
+                if (hshakeIntroEffect) {
+                    hshakeIntroEffectTimer -= deltaTime * 1.75;
+                    if (hshakeIntroEffectTimer < 0) {
+                        hshakeIntroEffect = false;
+                        hshakeIntroEffectTimer = 0;
+                    }
+                    hshakeVelocity = lerp(hshakeVelocityTarget, hshakeVelocitySource, hshakeIntroEffectTimer * hshakeIntroEffectTimer);
+                    hshakeMagnitude = lerp(hshakeMagnitudeTarget, hshakeMagnitudeSource, hshakeIntroEffectTimer * hshakeIntroEffectTimer);
+                }
+
                 hshakeGlobalValue += deltaTime * Math.PI * hshakeVelocity;
                 while (hshakeGlobalValue > Math.PI * 2) { hshakeGlobalValue -= Math.PI * 2; }
 
                 for (var i = 0; i < 10; i++) {
-                    document.documentElement.style.setProperty(cvNames[i], Math.round(Math.sin(hshakeGlobalValue + (Math.PI / 5 * (10 - i))) * hshakeMagnitude) + "px");
+                    document.documentElement.style.setProperty(cvShiftNames[i], Math.round(Math.sin(hshakeGlobalValue + (Math.PI / 5 * (10 - i))) * hshakeMagnitude) + "px");
                 }
 
                 requestAnimationFrame(update);
+            }
+
+            function lerp(a, b, t) {
+                return a + (b - a) * t;
             }
 
             requestAnimationFrame(update);
