@@ -12,7 +12,19 @@
                 src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
                 font-weight: normal;
                 font-style: normal;
-            }            
+            }
+            :root {
+                --hshake-lpad-0: 0px;
+                --hshake-lpad-1: 0px;
+                --hshake-lpad-2: 0px;
+                --hshake-lpad-3: 0px;
+                --hshake-lpad-4: 0px;
+                --hshake-lpad-5: 0px;
+                --hshake-lpad-6: 0px;
+                --hshake-lpad-7: 0px;
+                --hshake-lpad-8: 0px;
+                --hshake-lpad-9: 0px;
+            }
             html {
                 margin: 0;
                 padding: 0;
@@ -25,10 +37,15 @@
                 background: black;
                 color: white;
                 font-family: 'D2Coding', monospace;
-                font-size: 20px;
-                line-height: 24px;
+                font-size: 17px;
+                line-height: 22px;
                 text-align: center;
                 user-select: none;
+            }
+            .container {
+                display: inline-block;
+                max-width: 320px;
+                text-align: left;
             }
             .ascii-art {
                 font-size: 4px;
@@ -92,47 +109,75 @@
                 border: 2px white dotted;
                 padding: 2px 4px;
             }
-            .cathead {
-                animation: teeter ease-in-out 1s infinite;
+            .dim {
+                color: grey;
             }
-            @keyframes teeter {
-                0% {
-                    rotate: -6deg;
-                }
-                50% {
-                    rotate: 6deg;
-                }
-                100% {
-                    rotate: -6deg;
-                }
-            }
+            .hshake-0 { translate: var(--hshake-lpad-0); }
+            .hshake-1 { translate: var(--hshake-lpad-1); }
+            .hshake-2 { translate: var(--hshake-lpad-2); }
+            .hshake-3 { translate: var(--hshake-lpad-3); }
+            .hshake-4 { translate: var(--hshake-lpad-4); }
+            .hshake-5 { translate: var(--hshake-lpad-5); }
+            .hshake-6 { translate: var(--hshake-lpad-6); }
+            .hshake-7 { translate: var(--hshake-lpad-7); }
+            .hshake-8 { translate: var(--hshake-lpad-8); }
+            .hshake-9 { translate: var(--hshake-lpad-9); }
         </style>
     </head>
     <body>
-        <div class="label">시누의 싸이버스페이스</div>
-        <div class="vspacer"></div>
-        <div class="label"><img class="cathead" src="icon.webp" draggable="false"></div>
-        <div class="label">시누 (sinusinu)</div>
-        <div class="label">반가워요! 👋</div>
-        <div class="vspacer"></div>
-        <div>&lt; 주 사용 언어 &gt;</div>
-        <div>C#, Java, JavaScript</div>
-        <div class="vspacer"></div>
-        <div>&lt; 반쯤 하는 언어 &gt;</div>
-        <div>Python, Kotlin, C++</div>
-        <div class="vspacer"></div>
-        <div>&lt; 좋아하는 플랫폼 &gt;</div>
-        <div>Windows, Android, Cross-platform</div>
-        <div class="vspacer"></div>
-        <div>&lt; 관심 분야 &gt;</div>
-        <div>프론트엔드/UI, 게임, 웹, LLM</div>
-        <div class="vspacer"></div>
-        <div>&lt; 링크 &gt;</div>
-        <div class="vspacer"></div>
-        <a href="https://github.com/sinusinu" draggable="false">시누의 GitHub</a>
-        <div class="vspacer"></div>
-        <a href="/blog/" draggable="false">시누의 블로그</a>
-        <div class="vspacer"></div>
-        <a href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a>
+        <div class="container">
+            <div class="hshake-0">시누의 싸이버스페이스</div>
+            <div class="vspacer"></div>
+            <div class="hshake-1"><img class="cathead" src="icon.webp" draggable="false"></div>
+            <div class="hshake-2">시누 (sinusinu)</div>
+            <div class="hshake-3">반가워요! 👋</div>
+            <div class="vspacer"></div>
+            <div class="hshake-4 dim">주 사용 언어</div>
+            <div class="hshake-5">C#, Java, JavaScript</div>
+            <div class="vspacer"></div>
+            <div class="hshake-6 dim">반쯤 하는 언어</div>
+            <div class="hshake-7">Python, Kotlin, C++</div>
+            <div class="vspacer"></div>
+            <div class="hshake-8 dim">좋아하는 플랫폼</div>
+            <div class="hshake-9">Windows, Android, Cross-platform</div>
+            <div class="vspacer"></div>
+            <div class="hshake-0 dim">관심 분야</div>
+            <div class="hshake-1">프론트엔드/UI, 게임, 웹, LLM</div>
+            <div class="vspacer"></div>
+            <div class="hshake-2 dim">링크</div>
+            <div class="vspacer"></div>
+            <div class="hshake-3"><a href="https://github.com/sinusinu" draggable="false">시누의 GitHub</a></div>
+            <div class="vspacer"></div>
+            <div class="hshake-4"><a href="/blog/" draggable="false">시누의 블로그</a></div>
+            <div class="vspacer"></div>
+            <div class="hshake-5"><a href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a></div>
+        </div>
+        <script>
+            var cvNames = [ "--hshake-lpad-0", "--hshake-lpad-1", "--hshake-lpad-2", "--hshake-lpad-3", "--hshake-lpad-4", "--hshake-lpad-5", "--hshake-lpad-6", "--hshake-lpad-7", "--hshake-lpad-8", "--hshake-lpad-9" ];
+            
+            var hshakeGlobalValue = 0.0;
+            var last = Date.now();
+            
+            const hshakeVelocity = 2;
+            const hshakeMagnitude = 3;
+
+            function update() {
+                // calc deltaTime
+                var now = Date.now();
+                var deltaTime = (now - last) / 1000;
+                last = now;
+
+                hshakeGlobalValue += deltaTime * Math.PI * hshakeVelocity;
+                while (hshakeGlobalValue > Math.PI * 2) { hshakeGlobalValue -= Math.PI * 2; }
+
+                for (var i = 0; i < 10; i++) {
+                    document.documentElement.style.setProperty(cvNames[i], Math.round(Math.sin(hshakeGlobalValue + (Math.PI / 5 * (10 - i))) * hshakeMagnitude) + "px");
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            requestAnimationFrame(update);
+        </script>
     </body>
 </html>
