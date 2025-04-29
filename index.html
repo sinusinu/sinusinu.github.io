@@ -160,7 +160,7 @@
             var cvShiftNames = []; var i = Math.floor(Math.random() * cvNames.length); for (var j = 0; j < cvNames.length; j++) cvShiftNames.push(cvNames[(j + i) % cvNames.length]);
             
             var hshakeGlobalValue = 0.0;
-            var last = Date.now();
+            var last = 0;
             
             const hshakeVelocitySource = 4;
             const hshakeMagnitudeSource = 20;
@@ -201,7 +201,10 @@
                 return a + (b - a) * t;
             }
 
-            requestAnimationFrame(update);
+            window.addEventListener('load', function() {
+                last = Date.now();
+                requestAnimationFrame(update);
+            })
         </script>
     </body>
 </html>
