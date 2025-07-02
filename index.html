@@ -55,6 +55,17 @@
                 line-height: 4px;
                 user-select: none;
             }
+            .whirr {
+                animation: whirr cubic-bezier(.22,.61,.36,1) 0.8s;
+            }
+            @keyframes whirr {
+                0% {
+                    transform: rotateY(540deg);
+                }
+                100% {
+                    transform: rotateY(0deg);
+                }
+            }
             a {
                 display: inline-block;
                 text-decoration: none;
@@ -118,31 +129,23 @@
         <div class="container">
             <div class="hshake-0">시누의 싸이버스페이스</div>
             <div class="vspacer"></div>
-            <div class="hshake-2"><img class="cathead" style="width: 64px; height: 64px" src="icon.webp" draggable="false"></div>
-            <div class="hshake-3">시누 (sinusinu)</div>
-            <div class="hshake-4">우울한 코딩쟁이</div>
+            <div class="hshake-2"><img id="cathead" class="cathead" style="width: 64px; height: 64px" src="icon.webp" draggable="false"></div>
+            <div class="hshake-3">시누 / 코딩쟁이</div>
             <div class="vspacer"></div>
-            <div class="hshake-6 dim">주 사용 언어</div>
-            <div class="hshake-7">C#, Java, JavaScript</div>
+            <div class="hshake-6">반가워요! 👋</div>
             <div class="vspacer"></div>
-            <div class="hshake-9 dim">반쯤 하는 언어</div>
-            <div class="hshake-0">Python, Kotlin, C++</div>
+            <div class="hshake-8">여기는 제 홈페이지입니다만</div>
+            <div class="hshake-9">딱히 걸어놓을 게 없네요 🤔</div>
             <div class="vspacer"></div>
-            <div class="hshake-2 dim">좋아하는 플랫폼</div>
-            <div class="hshake-3">Windows, Android, Cross-platform</div>
+            <div class="hshake-1">즐거운 하루 되세요!</div>
             <div class="vspacer"></div>
-            <div class="hshake-5 dim">관심 분야</div>
-            <div class="hshake-6">프론트엔드/UI, 게임, 웹, LLM</div>
+            <div class="hshake-3 dim">링크</div>
             <div class="vspacer"></div>
-            <div class="hshake-8">반가워요! 👋</div>
+            <div class="hshake-5"><span><a id="link-github" class="link-preload" href="https://github.com/sinusinu" draggable="false">GitHub</a></span>&nbsp;<span><a id="link-insta" class="link-preload" href="https://www.instagram.com/just4sinu/" draggable="false">Instagram</a></span></div>
             <div class="vspacer"></div>
-            <div class="hshake-0 dim">링크</div>
+            <div class="hshake-7"><a id="link-blog" class="link-preload" href="/blog/" draggable="false">시누의 블로그</a></div>
             <div class="vspacer"></div>
-            <div class="hshake-2"><span><a id="link-github" class="link-preload" href="https://github.com/sinusinu" draggable="false">GitHub</a></span>&nbsp;<span><a id="link-insta" class="link-preload" href="https://www.instagram.com/just4sinu/" draggable="false">Instagram</a></span></div>
-            <div class="vspacer"></div>
-            <div class="hshake-4"><a id="link-blog" class="link-preload" href="/blog/" draggable="false">시누의 블로그</a></div>
-            <div class="vspacer"></div>
-            <div class="hshake-6"><a id="link-sinutools" class="link-preload" href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a></div>
+            <div class="hshake-9"><a id="link-sinutools" class="link-preload" href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a></div>
         </div>
         <script>
             var cvNames = [ "--hshake-lpad-0", "--hshake-lpad-1", "--hshake-lpad-2", "--hshake-lpad-3", "--hshake-lpad-4", "--hshake-lpad-5", "--hshake-lpad-6", "--hshake-lpad-7", "--hshake-lpad-8", "--hshake-lpad-9" ];
@@ -166,6 +169,8 @@
                 document.getElementById("link-blog"),
                 document.getElementById("link-sinutools"),
             ]
+
+            var cathead = document.getElementById("cathead");
 
             function update() {
                 // calc deltaTime
@@ -201,6 +206,7 @@
                 for (var i = 0; i < links.length; i++) {
                     links[i].classList.remove("link-preload");
                 }
+                cathead.classList.add("whirr");
                 last = Date.now();
                 requestAnimationFrame(update);
             })
