@@ -153,8 +153,8 @@
             <div class="vspacer"></div>
             <div class="hshake-9"><a id="link-sinutools" class="link-preload" href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a></div>
             <div class="egg egg-hide" id="egg">
-                <div class="egg-beeg">Windows 정품 인증</div>
-                <div class="egg-smol">[설정]으로 이동하여 Windows를 정품 인증합니다.</div>
+                <div id="egg-title" class="egg-beeg"></div>
+                <div id="egg-subtitle" class="egg-smol"></div>
             </div>
         </div>
         <script>
@@ -181,6 +181,11 @@
             ]
 
             var cathead = document.getElementById("cathead");
+
+            var eggs = [
+                new Uint8Array([87,105,110,100,111,119,115,32,236,160,149,237,146,136,32,236,157,184,236,166,157]),
+                new Uint8Array([91,236,132,164,236,160,149,93,236,156,188,235,161,156,32,236,157,180,235,143,153,237,149,152,236,151,172,32,87,105,110,100,111,119,115,235,165,188,32,236,160,149,237,146,136,32,236,157,184,236,166,157,237,149,169,235,139,136,235,139,164,46])
+            ];
 
             function update() {
                 // calc deltaTime
@@ -221,7 +226,12 @@
                 requestAnimationFrame(update);
             })
 
-            if (navigator.userAgent.indexOf("Windows") > 0) if (Math.random() < 0.05) document.getElementById("egg").classList.remove("egg-hide");
+            if (navigator.userAgent.indexOf("Windows") > 0) if (Math.random() < 0.05) {
+                var te = new TextDecoder();
+                document.getElementById("egg-title").innerText = te.decode(eggs[0]);
+                document.getElementById("egg-subtitle").innerText = te.decode(eggs[1]);
+                document.getElementById("egg").classList.remove("egg-hide");
+            }
         </script>
     </body>
 </html>
