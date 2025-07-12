@@ -5,232 +5,400 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="favicon.png" type="image/png"/>
 		<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon"/>
+        <link rel="preload" as="image" href="1.webp">
+        <link rel="preload" as="image" href="2.webp">
+        <link rel="preload" as="image" href="3.webp">
+        <link rel="preload" as="image" href="4.webp">
+        <link rel="preload" as="image" href="5.webp">
+        <link rel="preload" as="image" href="6.webp">
+        <link rel="preload" as="image" href="7.webp">
+        <link rel="preload" as="image" href="8.webp">
+        <link rel="preload" as="image" href="9.webp">
+        <link rel="preload" as="image" href="b1.webp">
+        <link rel="preload" as="image" href="b2.webp">
+        <link rel="preload" as="image" href="b3.webp">
+        <link rel="preload" as="image" href="b4.webp">
+        <link rel="preload" as="image" href="b5.webp">
+        <link rel="preload" as="image" href="b6.webp">
+        <link rel="preload" as="image" href="b7.webp">
+        <link rel="preload" as="image" href="b8.webp">
+        <link rel="preload" as="image" href="b9.webp">
+        <link rel="preload" as="image" href="ba1.webp">
+        <link rel="preload" as="image" href="ba2.webp">
+        <link rel="preload" as="image" href="ba3.webp">
+        <link rel="preload" as="image" href="ba4.webp">
+        <link rel="preload" as="image" href="ba6.webp">
+        <link rel="preload" as="image" href="ba7.webp">
+        <link rel="preload" as="image" href="ba8.webp">
+        <link rel="preload" as="image" href="ba9.webp">
+        <link rel="preload" as="image" href="bp1.webp">
+        <link rel="preload" as="image" href="bp2.webp">
+        <link rel="preload" as="image" href="bp3.webp">
+        <link rel="preload" as="image" href="bp4.webp">
+        <link rel="preload" as="image" href="bp6.webp">
+        <link rel="preload" as="image" href="bp7.webp">
+        <link rel="preload" as="image" href="bp8.webp">
+        <link rel="preload" as="image" href="bp9.webp">
         <title>시누의 싸이버스페이스</title>
         <style>
             @font-face {
-                font-family: 'D2Coding';
-                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
-                font-weight: normal;
+                font-family: 'Pretendard-Regular';
+                src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+                font-weight: 400;
                 font-style: normal;
             }
             :root {
-                --hshake-lpad-0: 0px;
-                --hshake-lpad-1: 0px;
-                --hshake-lpad-2: 0px;
-                --hshake-lpad-3: 0px;
-                --hshake-lpad-4: 0px;
-                --hshake-lpad-5: 0px;
-                --hshake-lpad-6: 0px;
-                --hshake-lpad-7: 0px;
-                --hshake-lpad-8: 0px;
-                --hshake-lpad-9: 0px;
+                --window-body-width: 320px;
+                --window-body-height: 280px;
+                --wbutton-body-width: 136px;
+                --wbutton-body-width-xl: 292px;
+                --wbutton-body-height: 35px;
             }
             html {
                 margin: 0;
                 padding: 0;
-                height: 100%;
+                height: 100vh;
             }
             body {
                 margin: 0;
                 padding: 0;
-                width: 100%;
-                height: 100%;
+                width: 100vw;
+                height: 100vh;
                 overflow: hidden;
-                background: black;
+                background: #3a6ea6;
                 color: white;
-                font-family: 'D2Coding', monospace;
-                font-size: 17px;
-                line-height: 22px;
+                font-family: 'Pretendard', sans-serif;
                 text-align: center;
                 user-select: none;
             }
             .container {
-                padding-top: 16px;
-                display: inline-block;
-                max-width: 320px;
-                text-align: left;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
             }
-            .ascii-art {
-                font-size: 4px;
-                line-height: 4px;
-                user-select: none;
-            }
-            a {
-                display: inline-block;
-                text-decoration: none;
+            .window {
+                display: flex;
+                flex-direction: column;
+                font-size: 22px;
                 color: black;
-                background-color: white;
-                padding: 4px 6px;
+                image-rendering: pixelated;
             }
-            a:hover {
-                animation: link-blink step-start 1s infinite;
+            .window-scan {
+                display: flex;
+                flex-direction: row;
+                margin: auto;
             }
-            a:focus, a:active {
+            .window-piece {
+                display: block;
+                margin: auto;
+            }
+            .window-7 { background-image: url('7.webp'); width: 6px; height: 44px; }
+            .window-8 { background-image: url('8.webp'); width: var(--window-body-width); height: 44px; background-size: 100% 100%; }
+            .window-9 { background-image: url('9.webp'); width: 6px; height: 44px; }
+            .window-4 { background-image: url('4.webp'); width: 6px; height: var(--window-body-height); }
+            .window-5 { background-image: url('5.webp'); width: var(--window-body-width); height: var(--window-body-height); }
+            .window-6 { background-image: url('6.webp'); width: 6px; height: var(--window-body-height); }
+            .window-1 { background-image: url('1.webp'); width: 6px; height: 6px; }
+            .window-2 { background-image: url('2.webp'); width: var(--window-body-width); height: 6px; }
+            .window-3 { background-image: url('3.webp'); width: 6px; height: 6px; }
+            .window-title {
+                text-align: left;
+                padding-top: 10px;
+                padding-left: 7px;
+                padding-right: 7px;
+                font-weight: bold;
                 color: white;
-                background-color: black;
+            }
+            .window-content {
+                text-align: left;
+                padding: 8px;
+            }
+            .wbutton {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 8px;
+            }
+            .wbutton-scan {
+                display: flex;
+                flex-direction: row;
+                margin: auto;
+            }
+            .wbutton-piece {
+                display: block;
+                margin: auto;
+            }
+            .wbutton-7 { background-image: url('b7.webp'); width: 6px; height: 6px; }
+            .wbutton-8 { background-image: url('b8.webp'); width: var(--wbutton-body-width); height: 6px; }
+            .wbutton-9 { background-image: url('b9.webp'); width: 6px; height: 6px; }
+            .wbutton-4 { background-image: url('b4.webp'); width: 6px; height: var(--wbutton-body-height); }
+            .wbutton-5 { background-image: url('b5.webp'); width: var(--wbutton-body-width); height: var(--wbutton-body-height); }
+            .wbutton-6 { background-image: url('b6.webp'); width: 6px; height: var(--wbutton-body-height); }
+            .wbutton-1 { background-image: url('b1.webp'); width: 6px; height: 6px; }
+            .wbutton-2 { background-image: url('b2.webp'); width: var(--wbutton-body-width); height: 6px; }
+            .wbutton-3 { background-image: url('b3.webp'); width: 6px; height: 6px; }
+            .wbutton-8-xl { background-image: url('b8.webp'); width: var(--wbutton-body-width-xl); height: 6px; }
+            .wbutton-5-xl { background-image: url('b5.webp'); width: var(--wbutton-body-width-xl); height: var(--wbutton-body-height); }
+            .wbutton-2-xl { background-image: url('b2.webp'); width: var(--wbutton-body-width-xl); height: 6px; }
+            .wbutton-7-active { background-image: url('bp7.webp') !important; }
+            .wbutton-8-active { background-image: url('bp8.webp') !important; }
+            .wbutton-9-active { background-image: url('bp9.webp') !important; }
+            .wbutton-4-active { background-image: url('bp4.webp') !important; }
+            .wbutton-6-active { background-image: url('bp6.webp') !important; }
+            .wbutton-1-active { background-image: url('bp1.webp') !important; }
+            .wbutton-2-active { background-image: url('bp2.webp') !important; }
+            .wbutton-3-active { background-image: url('bp3.webp') !important; }
+            .wbutton-7-focus { background-image: url('ba7.webp'); }
+            .wbutton-8-focus { background-image: url('ba8.webp'); }
+            .wbutton-9-focus { background-image: url('ba9.webp'); }
+            .wbutton-4-focus { background-image: url('ba4.webp'); }
+            .wbutton-6-focus { background-image: url('ba6.webp'); }
+            .wbutton-1-focus { background-image: url('ba1.webp'); }
+            .wbutton-2-focus { background-image: url('ba2.webp'); }
+            .wbutton-3-focus { background-image: url('ba3.webp'); }
+            .wbutton-content {
+                border: 2px solid transparent;
+                padding-top: 1px;
+                text-align: center;
+            }
+            .wbutton-content:focus {
+                border: 2px dotted black;
+                box-sizing: border-box;
                 outline: none;
-                border: 2px white dotted;
-                padding: 2px 4px;
             }
-            @keyframes link-blink {
-                0% {
-                    color: black;
-                    background-color: white;
-                    border: none;
-                    padding: 4px 6px;
-                }
-                50% {
-                    color: white;
-                    background-color: black;
-                    border: 2px white dotted;
-                    padding: 2px 4px;
-                }
-                100% {
-                    color: black;
-                    background-color: white;
-                    border: none;
-                    padding: 4px 6px;
-                }
+            .wbutton-container {
+                display: flex;
+                flex-direction: row;
             }
-            .link-preload {
-                color: white !important;
-                background-color: black !important;
+            .window-hpane {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
             }
-            .vspacer {
-                height: 20px;
+            .window-hpane-primary {
+                flex-grow: 1;
             }
-            .dim {
-                color: grey;
+            .window-hpane-label {
+                padding: 12px;
+                line-height: 25px;
             }
-            .hshake-0 { translate: var(--hshake-lpad-0); }
-            .hshake-1 { translate: var(--hshake-lpad-1); }
-            .hshake-2 { translate: var(--hshake-lpad-2); }
-            .hshake-3 { translate: var(--hshake-lpad-3); }
-            .hshake-4 { translate: var(--hshake-lpad-4); }
-            .hshake-5 { translate: var(--hshake-lpad-5); }
-            .hshake-6 { translate: var(--hshake-lpad-6); }
-            .hshake-7 { translate: var(--hshake-lpad-7); }
-            .hshake-8 { translate: var(--hshake-lpad-8); }
-            .hshake-9 { translate: var(--hshake-lpad-9); }
-            .egg {
-                font-family: '맑은 고딕', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+            .rspacer {
+                margin-right: 8px;
+            }
+            .bspacer {
+                margin-bottom: 4px;
+            }
+            .accelerator {
+                text-decoration: underline 2px;
+            }
+            .bottomtext {
                 position: absolute;
-                right: 74px;
-                bottom: 53px;
-                color: rgb(127, 127, 127);
+                right: 8px;
+                bottom: 8px;
+                color: white;
+                text-align: right;
+                z-index: -1;
             }
-            @media (orientation: portrait) {
-                .egg {
-                    visibility: hidden;
-                }
-            }
-            .egg-hide {
-                visibility: hidden;
-            }
-            .egg-beeg {
-                font-size: 19px;
-                padding-bottom: 2px;
-                padding-left: 1px;
-            }
-            .egg-smol {
-                font-size: 15px;
-            }
-            .cathead-hide {
-                visibility: hidden;
+            .bottomtext .title {
+                font-weight: bold;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="hshake-0">시누의 싸이버스페이스</div>
-            <div class="vspacer"></div>
-            <div class="hshake-2"><img id="cathead" class="cathead-hide" style="width: 64px; height: 64px" src="icon.webp" draggable="false"></div>
-            <div class="hshake-3">반가워요!</div>
-            <div class="vspacer"></div>
-            <div class="hshake-5"><span><a id="link-github" class="link-preload" href="https://github.com/sinusinu" draggable="false">GitHub</a></span>&nbsp;<span><a id="link-insta" class="link-preload" href="https://www.instagram.com/just4sinu/" draggable="false">Instagram</a></span></div>
-            <div class="vspacer"></div>
-            <div class="hshake-7"><a id="link-blog" class="link-preload" href="/blog/" draggable="false">시누의 블로그</a></div>
-            <div class="vspacer"></div>
-            <div class="hshake-9"><a id="link-sinutools" class="link-preload" href="/sinutools/" draggable="false">시누의 잡동사니 도구들</a></div>
-            <div class="egg egg-hide" id="egg">
-                <div id="egg-title" class="egg-beeg"></div>
-                <div id="egg-subtitle" class="egg-smol"></div>
+            <div class="window">
+                <div class="window-scan">
+                    <div class="window-piece window-7"></div>
+                    <div class="window-piece window-8">
+                        <div class="window-title">시누의 싸이버스페이스</div>
+                    </div>
+                    <div class="window-piece window-9"></div>
+                </div>
+                <div class="window-scan">
+                    <div class="window-piece window-4"></div>
+                    <div class="window-piece window-5">
+                        <div class="window-content">
+                            <div class="window-hpane bspacer">
+                                <div><img style="width: 96px; height: 96px; image-rendering: optimizeQuality;" src="icon.webp" draggable="false"></div>
+                                <div class="window-hpane-primary window-hpane-label">반가워요!</div>
+                            </div>
+                            <div class="wbutton-container">
+                                <div class="wbutton rspacer" data-target="g" onclick="gotoSite('g');">
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-7"></div>
+                                        <div class="wbutton-piece wbutton-8"></div>
+                                        <div class="wbutton-piece wbutton-9"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-4"></div>
+                                        <div class="wbutton-piece wbutton-5">
+                                            <div class="wbutton-content" tabindex="0"><span class="accelerator">G</span>itHub</div>
+                                        </div>
+                                        <div class="wbutton-piece wbutton-6"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-1"></div>
+                                        <div class="wbutton-piece wbutton-2"></div>
+                                        <div class="wbutton-piece wbutton-3"></div>
+                                    </div>
+                                </div>
+                                <div class="wbutton" data-target="i" onclick="gotoSite('i');">
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-7"></div>
+                                        <div class="wbutton-piece wbutton-8"></div>
+                                        <div class="wbutton-piece wbutton-9"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-4"></div>
+                                        <div class="wbutton-piece wbutton-5">
+                                            <div class="wbutton-content" tabindex="0"><span class="accelerator">I</span>nstagram</div>
+                                        </div>
+                                        <div class="wbutton-piece wbutton-6"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-1"></div>
+                                        <div class="wbutton-piece wbutton-2"></div>
+                                        <div class="wbutton-piece wbutton-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="wbutton" data-target="b" onclick="gotoSite('b');">
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-7"></div>
+                                        <div class="wbutton-piece wbutton-8-xl"></div>
+                                        <div class="wbutton-piece wbutton-9"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-4"></div>
+                                        <div class="wbutton-piece wbutton-5-xl">
+                                            <div class="wbutton-content" tabindex="0">시누의 블로그(<span class="accelerator">B</span>)</div>
+                                        </div>
+                                        <div class="wbutton-piece wbutton-6"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-1"></div>
+                                        <div class="wbutton-piece wbutton-2-xl"></div>
+                                        <div class="wbutton-piece wbutton-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="wbutton" data-target="t" onclick="gotoSite('t');">
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-7"></div>
+                                        <div class="wbutton-piece wbutton-8-xl"></div>
+                                        <div class="wbutton-piece wbutton-9"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-4"></div>
+                                        <div class="wbutton-piece wbutton-5-xl">
+                                            <div class="wbutton-content" tabindex="0">시누의 잡동사니 도구들(<span class="accelerator">T</span>)</div>
+                                        </div>
+                                        <div class="wbutton-piece wbutton-6"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-1"></div>
+                                        <div class="wbutton-piece wbutton-2-xl"></div>
+                                        <div class="wbutton-piece wbutton-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="window-piece window-6"></div>
+                </div>
+                <div class="window-scan">
+                    <div class="window-piece window-1"></div>
+                    <div class="window-piece window-2"></div>
+                    <div class="window-piece window-3"></div>
+                </div>
             </div>
         </div>
+        <div class="bottomtext">
+            <span class="title">시누의 싸이버스페이스</span><br>
+            빌드 42c510a<br>
+            이 웹사이트는 정품이 아닙니다.
+        </div>
         <script>
-            var cvNames = [ "--hshake-lpad-0", "--hshake-lpad-1", "--hshake-lpad-2", "--hshake-lpad-3", "--hshake-lpad-4", "--hshake-lpad-5", "--hshake-lpad-6", "--hshake-lpad-7", "--hshake-lpad-8", "--hshake-lpad-9" ];
-            var cvShiftNames = []; var i = Math.floor(Math.random() * cvNames.length); for (var j = 0; j < cvNames.length; j++) cvShiftNames.push(cvNames[(j + i) % cvNames.length]);
+            var buttons = document.getElementsByClassName("wbutton");
+            for (var i = 0; i < buttons.length; i++) {
+                const button = buttons[i];
+                button.children[1].children[1].children[0].addEventListener("focus", (ev) => { effectFocusButton(button); });
+                button.children[1].children[1].children[0].addEventListener("blur", (ev) => { effectBlurButton(button); effectReleaseButton(button); });
+                button.children[1].children[1].children[0].addEventListener("keydown", (ev) => { if (ev.key === " " || ev.key === "Enter") effectPressButton(button); });
+                button.children[1].children[1].children[0].addEventListener("keyup", (ev) => { if (ev.key === " " || ev.key === "Enter") { effectReleaseButton(button); gotoSite(button.dataset.target) }});
+                button.addEventListener("pointerdown", (ev) => { effectPressButton(button); });
+                button.addEventListener("pointerup", (ev) => { effectReleaseButton(button); });
+            }
             
-            var hshakeGlobalValue = 0.0;
-            var last = 0;
-            
-            const hshakeVelocitySource = 4;
-            const hshakeMagnitudeSource = 20;
-            const hshakeVelocityTarget = 1.25;
-            const hshakeMagnitudeTarget = 2.5;
-            var hshakeVelocity = hshakeVelocitySource;
-            var hshakeMagnitude = hshakeMagnitudeSource;
-            var hshakeIntroEffectTimer = 1;
-            var hshakeIntroEffect = true;
-
-            var links = [
-                document.getElementById("link-github"),
-                document.getElementById("link-insta"),
-                document.getElementById("link-blog"),
-                document.getElementById("link-sinutools"),
-            ]
-
-            var cathead = document.getElementById("cathead");
-
-            var eggs = [
-                new Uint8Array([87,105,110,100,111,119,115,32,236,160,149,237,146,136,32,236,157,184,236,166,157]),
-                new Uint8Array([91,236,132,164,236,160,149,93,236,156,188,235,161,156,32,236,157,180,235,143,153,237,149,152,236,151,172,32,87,105,110,100,111,119,115,235,165,188,32,236,160,149,237,146,136,32,236,157,184,236,166,157,237,149,169,235,139,136,235,139,164,46])
-            ];
-
-            function update() {
-                // calc deltaTime
-                var now = Date.now();
-                var deltaTime = (now - last) / 1000;
-                last = now;
-
-                if (hshakeIntroEffect) {
-                    hshakeIntroEffectTimer -= deltaTime * 1.75;
-                    if (hshakeIntroEffectTimer < 0) {
-                        hshakeIntroEffect = false;
-                        hshakeIntroEffectTimer = 0;
-                    }
-                    hshakeVelocity = lerp(hshakeVelocityTarget, hshakeVelocitySource, hshakeIntroEffectTimer * hshakeIntroEffectTimer);
-                    hshakeMagnitude = lerp(hshakeMagnitudeTarget, hshakeMagnitudeSource, hshakeIntroEffectTimer * hshakeIntroEffectTimer);
+            document.addEventListener("keyup", (ev) => {
+                switch (ev.key) {
+                    case "g":
+                    case "i":
+                    case "b":
+                    case "t":
+                        gotoSite(ev.key);
+                        break;
                 }
+            });
 
-                hshakeGlobalValue += deltaTime * Math.PI * hshakeVelocity;
-                while (hshakeGlobalValue > Math.PI * 2) { hshakeGlobalValue -= Math.PI * 2; }
-
-                for (var i = 0; i < 10; i++) {
-                    document.documentElement.style.setProperty(cvShiftNames[i], Math.round(Math.sin(hshakeGlobalValue + (Math.PI / 5 * (10 - i))) * hshakeMagnitude) + "px");
-                }
-
-                requestAnimationFrame(update);
+            function effectFocusButton(parentNode) {
+                parentNode.children[0].children[0].classList.add("wbutton-7-focus");
+                parentNode.children[0].children[1].classList.add("wbutton-8-focus");
+                parentNode.children[0].children[2].classList.add("wbutton-9-focus");
+                parentNode.children[1].children[0].classList.add("wbutton-4-focus");
+                parentNode.children[1].children[2].classList.add("wbutton-6-focus");
+                parentNode.children[2].children[0].classList.add("wbutton-1-focus");
+                parentNode.children[2].children[1].classList.add("wbutton-2-focus");
+                parentNode.children[2].children[2].classList.add("wbutton-3-focus");
             }
 
-            function lerp(a, b, t) {
-                return a + (b - a) * t;
+            function effectBlurButton(parentNode) {
+                parentNode.children[0].children[0].classList.remove("wbutton-7-focus");
+                parentNode.children[0].children[1].classList.remove("wbutton-8-focus");
+                parentNode.children[0].children[2].classList.remove("wbutton-9-focus");
+                parentNode.children[1].children[0].classList.remove("wbutton-4-focus");
+                parentNode.children[1].children[2].classList.remove("wbutton-6-focus");
+                parentNode.children[2].children[0].classList.remove("wbutton-1-focus");
+                parentNode.children[2].children[1].classList.remove("wbutton-2-focus");
+                parentNode.children[2].children[2].classList.remove("wbutton-3-focus");
             }
 
-            window.addEventListener('load', function() {
-                for (var i = 0; i < links.length; i++) {
-                    links[i].classList.remove("link-preload");
-                }
-                cathead.classList.remove("cathead-hide");
-                last = Date.now();
-                requestAnimationFrame(update);
-            })
+            function effectPressButton(parentNode) {
+                parentNode.children[0].children[0].classList.add("wbutton-7-active");
+                parentNode.children[0].children[1].classList.add("wbutton-8-active");
+                parentNode.children[0].children[2].classList.add("wbutton-9-active");
+                parentNode.children[1].children[0].classList.add("wbutton-4-active");
+                parentNode.children[1].children[2].classList.add("wbutton-6-active");
+                parentNode.children[2].children[0].classList.add("wbutton-1-active");
+                parentNode.children[2].children[1].classList.add("wbutton-2-active");
+                parentNode.children[2].children[2].classList.add("wbutton-3-active");
+            }
 
-            if (navigator.userAgent.indexOf("Windows") > 0) if (Math.random() < 0.05) {
-                var te = new TextDecoder();
-                document.getElementById("egg-title").innerText = te.decode(eggs[0]);
-                document.getElementById("egg-subtitle").innerText = te.decode(eggs[1]);
-                document.getElementById("egg").classList.remove("egg-hide");
+            function effectReleaseButton(parentNode) {
+                parentNode.children[0].children[0].classList.remove("wbutton-7-active");
+                parentNode.children[0].children[1].classList.remove("wbutton-8-active");
+                parentNode.children[0].children[2].classList.remove("wbutton-9-active");
+                parentNode.children[1].children[0].classList.remove("wbutton-4-active");
+                parentNode.children[1].children[2].classList.remove("wbutton-6-active");
+                parentNode.children[2].children[0].classList.remove("wbutton-1-active");
+                parentNode.children[2].children[1].classList.remove("wbutton-2-active");
+                parentNode.children[2].children[2].classList.remove("wbutton-3-active");
+            }
+
+            const thething = "sinu";
+
+            function gotoSite(which) {
+                switch (which) {
+                    case "g": window.location.href = "https://github.com/" + thething + thething; break;
+                    case "i": window.location.href = "https://www.instagram.com/just4" + thething; break;
+                    case "b": window.location.href = "/blog/"; break;
+                    case "t": window.location.href = "/sinutools/"; break;
+                    default: break;
+                }
             }
         </script>
     </body>
