@@ -55,17 +55,6 @@
                 line-height: 4px;
                 user-select: none;
             }
-            .whirr {
-                animation: whirr cubic-bezier(.22,.61,.36,1) 0.8s;
-            }
-            @keyframes whirr {
-                0% {
-                    transform: rotateY(540deg);
-                }
-                100% {
-                    transform: rotateY(0deg);
-                }
-            }
             a {
                 display: inline-block;
                 text-decoration: none;
@@ -146,23 +135,17 @@
             .egg-smol {
                 font-size: 15px;
             }
+            .cathead-hide {
+                visibility: hidden;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="hshake-0">시누의 싸이버스페이스</div>
             <div class="vspacer"></div>
-            <div class="hshake-2"><img id="cathead" class="cathead" style="width: 64px; height: 64px" src="icon.webp" draggable="false"></div>
-            <div class="hshake-3">시누 / 코딩쟁이</div>
-            <div class="vspacer"></div>
-            <div class="hshake-6">반가워요! 👋</div>
-            <div class="vspacer"></div>
-            <div class="hshake-8">여기는 제 홈페이지입니다만</div>
-            <div class="hshake-9">딱히 걸어놓을 게 없네요 🤔</div>
-            <div class="vspacer"></div>
-            <div class="hshake-1">즐거운 하루 되세요!</div>
-            <div class="vspacer"></div>
-            <div class="hshake-3 dim">링크</div>
+            <div class="hshake-2"><img id="cathead" class="cathead-hide" style="width: 64px; height: 64px" src="icon.webp" draggable="false"></div>
+            <div class="hshake-3">반가워요!</div>
             <div class="vspacer"></div>
             <div class="hshake-5"><span><a id="link-github" class="link-preload" href="https://github.com/sinusinu" draggable="false">GitHub</a></span>&nbsp;<span><a id="link-insta" class="link-preload" href="https://www.instagram.com/just4sinu/" draggable="false">Instagram</a></span></div>
             <div class="vspacer"></div>
@@ -233,7 +216,7 @@
                 for (var i = 0; i < links.length; i++) {
                     links[i].classList.remove("link-preload");
                 }
-                cathead.classList.add("whirr");
+                cathead.classList.remove("cathead-hide");
                 last = Date.now();
                 requestAnimationFrame(update);
             })
