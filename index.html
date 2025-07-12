@@ -49,10 +49,10 @@
             }
             :root {
                 --window-body-width: 320px;
-                --window-body-height: 280px;
+                --window-body-height: 270px;
                 --wbutton-body-width: 136px;
                 --wbutton-body-width-xl: 292px;
-                --wbutton-body-height: 35px;
+                --wbutton-body-height: 32px;
             }
             html {
                 margin: 0;
@@ -111,11 +111,6 @@
                 font-weight: bold;
                 color: white;
             }
-            @media (orientation: portrait) {
-                .window-title {
-                    padding-top: 9px;
-                }
-            }
             .window-content {
                 text-align: left;
                 padding: 8px;
@@ -164,8 +159,15 @@
             .wbutton-3-focus { background-image: url('ba3.webp'); }
             .wbutton-content {
                 border: 2px solid transparent;
-                padding-top: 1px;
                 text-align: center;
+            }
+            @media (orientation: portrait) {
+                .window-title {
+                    padding-top: 9px;
+                }
+                .wbutton-content {
+                    margin-top: -1px;
+                }
             }
             .wbutton-content:focus {
                 border: 2px dotted black;
