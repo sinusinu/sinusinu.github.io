@@ -226,8 +226,8 @@
             .bottomtext .title {
                 font-weight: bold;
             }
-            .hiddenlink {
-                visibility: collapse;
+            a#dontletmeleave {
+                cursor: default;
             }
         </style>
     </head>
@@ -238,7 +238,7 @@
                     <div class="window-piece window-7"></div>
                     <div class="window-piece window-8 window-title-container">
                         <div class="window-title">시누의 싸이버스페이스</div>
-                        <div id="window-closebutton" class="window-closebutton"><div class="hiddenlink"><a href="https://youtu.be/GIUhpzv47YQ" rel="noreferrer" id="dontletmeleave">a</a></div></div>
+                        <a href="https://youtu.be/GIUhpzv47YQ" rel="noreferrer" id="dontletmeleave"><div id="window-closebutton" class="window-closebutton"></div></a>
                     </div>
                     <div class="window-piece window-9"></div>
                 </div>
@@ -428,7 +428,6 @@
                     case "i": window.location.href = "https://www.instagram.com/just4" + thething; break;
                     case "b": window.location.href = "/blog/"; break;
                     case "t": window.location.href = "/sinutools/"; break;
-                    case "x": document.getElementById("dontletmeleave").click(); break;
                     default: break;
                 }
             }
