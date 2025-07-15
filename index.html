@@ -13,6 +13,8 @@
         <link rel="preload" as="image" href="6.webp">
         <link rel="preload" as="image" href="7.webp">
         <link rel="preload" as="image" href="8.webp">
+        <link rel="preload" as="image" href="8x.webp">
+        <link rel="preload" as="image" href="8xp.webp">
         <link rel="preload" as="image" href="9.webp">
         <link rel="preload" as="image" href="b1.webp">
         <link rel="preload" as="image" href="b2.webp">
@@ -95,7 +97,6 @@
                 margin: auto;
             }
             .window-7 { background-image: url('7.webp'); width: 6px; height: 44px; }
-            .window-8 { background-image: url('8.webp'); width: var(--window-body-width); height: 44px; background-size: 100% 100%; }
             .window-9 { background-image: url('9.webp'); width: 6px; height: 44px; }
             .window-4 { background-image: url('4.webp'); width: 6px; height: var(--window-body-height); }
             .window-5 { background-image: url('5.webp'); width: var(--window-body-width); height: var(--window-body-height); }
@@ -103,6 +104,10 @@
             .window-1 { background-image: url('1.webp'); width: 6px; height: 6px; }
             .window-2 { background-image: url('2.webp'); width: var(--window-body-width); height: 6px; }
             .window-3 { background-image: url('3.webp'); width: 6px; height: 6px; }
+            .window-title-container {
+                width: var(--window-body-width); height: 44px;
+                display: flex;
+            }
             .window-title {
                 text-align: left;
                 padding-top: 10px;
@@ -110,6 +115,19 @@
                 padding-right: 7px;
                 font-weight: bold;
                 color: white;
+                background-image: url('8.webp'); 
+                background-size: 100% 100%;
+                flex-grow: 1;
+            }
+            @media (orientation: portrait) {
+                .window-title {
+                    padding-top: 9px;
+                }
+            }
+            .window-closebutton {
+                width: 36px;
+                height: 44px;
+                background-image: url('8x.webp');
             }
             .window-content {
                 text-align: left;
@@ -162,9 +180,6 @@
                 text-align: center;
             }
             @media (orientation: portrait) {
-                .window-title {
-                    padding-top: 9px;
-                }
                 .wbutton-content {
                     margin-top: -1px;
                 }
@@ -218,8 +233,9 @@
             <div class="window">
                 <div class="window-scan">
                     <div class="window-piece window-7"></div>
-                    <div class="window-piece window-8">
+                    <div class="window-piece window-8 window-title-container">
                         <div class="window-title">시누의 싸이버스페이스</div>
+                        <div id="window-closebutton" class="window-closebutton"></div>
                     </div>
                     <div class="window-piece window-9"></div>
                 </div>
@@ -339,7 +355,12 @@
                 button.children[1].children[1].children[0].addEventListener("keyup", (ev) => { if (ev.key === " " || ev.key === "Enter") { effectReleaseButton(button); gotoSite(button.dataset.target) }});
                 button.addEventListener("pointerdown", (ev) => { effectPressButton(button); });
                 button.addEventListener("pointerup", (ev) => { effectReleaseButton(button); });
+                button.addEventListener("pointerleave", (ev) => { effectReleaseButton(button); });
             }
+            var closebutton = document.getElementById("window-closebutton");
+            closebutton.addEventListener("pointerdown", (ev) => { closebutton.style.backgroundImage = "url('8xp.webp')"; });
+            closebutton.addEventListener("pointerup", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
+            closebutton.addEventListener("pointerleave", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
             
             document.addEventListener("keyup", (ev) => {
                 switch (ev.key) {
