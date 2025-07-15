@@ -226,16 +226,19 @@
             .bottomtext .title {
                 font-weight: bold;
             }
+            .hiddenlink {
+                visibility: collapse;
+            }
         </style>
     </head>
     <body>
-        <div class="container">
+        <div id="container" class="container">
             <div class="window">
                 <div class="window-scan">
                     <div class="window-piece window-7"></div>
                     <div class="window-piece window-8 window-title-container">
                         <div class="window-title">시누의 싸이버스페이스</div>
-                        <div id="window-closebutton" class="window-closebutton"></div>
+                        <div id="window-closebutton" class="window-closebutton"><div class="hiddenlink"><a href="https://youtu.be/GIUhpzv47YQ" rel="noreferrer" id="dontletmeleave">a</a></div></div>
                     </div>
                     <div class="window-piece window-9"></div>
                 </div>
@@ -359,7 +362,7 @@
             }
             var closebutton = document.getElementById("window-closebutton");
             closebutton.addEventListener("pointerdown", (ev) => { closebutton.style.backgroundImage = "url('8xp.webp')"; });
-            closebutton.addEventListener("pointerup", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
+            closebutton.addEventListener("pointerup", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; gotoSite('x'); });
             closebutton.addEventListener("pointerleave", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
             
             document.addEventListener("keyup", (ev) => {
@@ -425,6 +428,7 @@
                     case "i": window.location.href = "https://www.instagram.com/just4" + thething; break;
                     case "b": window.location.href = "/blog/"; break;
                     case "t": window.location.href = "/sinutools/"; break;
+                    case "x": document.getElementById("dontletmeleave").click(); break;
                     default: break;
                 }
             }
