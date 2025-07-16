@@ -229,6 +229,25 @@
             a#dontletmeleave {
                 cursor: default;
             }
+            .speen {
+                animation: spin 4s linear forwards;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotateZ(-360deg) scaleX(100%) scaleY(100%);
+                    opacity: 100%;
+                }
+
+                15% {
+                    transform: rotateZ(-360deg) scaleX(160%) scaleY(120%);
+                    opacity: 100%;
+                }
+
+                100% {
+                    transform: rotateZ(0deg) scaleX(0%) scaleY(0%);
+                    opacity: 0%;
+                }
+            }
         </style>
     </head>
     <body>
@@ -247,8 +266,8 @@
                     <div class="window-piece window-5">
                         <div class="window-content">
                             <div class="window-hpane bspacer">
-                                <div><img style="width: 64px; height: 64px;" src="icon.webp" draggable="false"></div>
-                                <div class="window-hpane-primary window-hpane-label">반가워요!</div>
+                                <div><img id="cathead" style="width: 64px; height: 64px;" src="icon.webp" draggable="false" onpointerdown="speen();"></div>
+                                <div id="hello" class="window-hpane-primary window-hpane-label">반가워요!</div>
                             </div>
                             <div class="wbutton-container">
                                 <div class="wbutton rspacer" data-target="g" onclick="gotoSite('g');">
@@ -430,6 +449,14 @@
                     case "t": window.location.href = "/sinutools/"; break;
                     default: break;
                 }
+            }
+
+            function speen() {
+                var cathead = document.getElementById("cathead");
+                // cathead.classList.remove("speen");
+                // cathead.offsetWidth;
+                cathead.classList.add("speen");
+                document.getElementById("hello").innerText = "";
             }
         </script>
     </body>
