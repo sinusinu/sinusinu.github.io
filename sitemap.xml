@@ -6,4 +6,7 @@
    <sitemap>
       <loc>https://sinu.pe.kr/blog/sitemap.xml</loc>
    </sitemap>
+   <sitemap>
+      <loc>https://sinu.pe.kr/sinutools/sitemap.xml</loc>
+   </sitemap>
 </sitemapindex>
