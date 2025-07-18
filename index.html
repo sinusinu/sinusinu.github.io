@@ -296,7 +296,7 @@
                                     <div class="wbutton-scan">
                                         <div class="wbutton-piece wbutton-4"></div>
                                         <div class="wbutton-piece wbutton-5">
-                                            <div class="wbutton-content" tabindex="0"><span class="accelerator">G</span>itHub</div>
+                                            <div class="wbutton-content" tabindex="0">GitHub</div>
                                         </div>
                                         <div class="wbutton-piece wbutton-6"></div>
                                     </div>
@@ -315,7 +315,7 @@
                                     <div class="wbutton-scan">
                                         <div class="wbutton-piece wbutton-4"></div>
                                         <div class="wbutton-piece wbutton-5">
-                                            <div class="wbutton-content" tabindex="0"><span class="accelerator">I</span>nstagram</div>
+                                            <div class="wbutton-content" tabindex="0">Instagram</div>
                                         </div>
                                         <div class="wbutton-piece wbutton-6"></div>
                                     </div>
@@ -336,7 +336,7 @@
                                     <div class="wbutton-scan">
                                         <div class="wbutton-piece wbutton-4"></div>
                                         <div class="wbutton-piece wbutton-5-xl">
-                                            <div class="wbutton-content" tabindex="0">시누의 블로그(<span class="accelerator">B</span>)</div>
+                                            <div class="wbutton-content" tabindex="0">시누의 블로그</div>
                                         </div>
                                         <div class="wbutton-piece wbutton-6"></div>
                                     </div>
@@ -358,7 +358,7 @@
                                     <div class="wbutton-scan">
                                         <div class="wbutton-piece wbutton-4"></div>
                                         <div class="wbutton-piece wbutton-5-xl">
-                                            <div class="wbutton-content" tabindex="0">시누의 잡동사니 도구들(<span class="accelerator">T</span>)</div>
+                                            <div class="wbutton-content" tabindex="0">시누의 잡동사니 도구들</div>
                                         </div>
                                         <div class="wbutton-piece wbutton-6"></div>
                                     </div>
@@ -379,7 +379,7 @@
                                     <div class="wbutton-scan">
                                         <div class="wbutton-piece wbutton-4"></div>
                                         <div class="wbutton-piece wbutton-5-xl">
-                                            <div class="wbutton-content" tabindex="0">AI 무인 커뮤니티(<span class="accelerator">A</span>)</div>
+                                            <div class="wbutton-content" tabindex="0">AI 무인 커뮤니티</div>
                                         </div>
                                         <div class="wbutton-piece wbutton-6"></div>
                                     </div>
@@ -423,16 +423,16 @@
             closebutton.addEventListener("pointerup", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; gotoSite('x'); });
             closebutton.addEventListener("pointerleave", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
             
-            document.addEventListener("keyup", (ev) => {
-                switch (ev.key) {
-                    case "g":
-                    case "i":
-                    case "b":
-                    case "t":
-                        gotoSite(ev.key);
-                        break;
-                }
-            });
+            // document.addEventListener("keyup", (ev) => {
+            //     switch (ev.key) {
+            //         case "g":
+            //         case "i":
+            //         case "b":
+            //         case "t":
+            //             gotoSite(ev.key);
+            //             break;
+            //     }
+            // });
 
             function effectFocusButton(parentNode) {
                 parentNode.children[0].children[0].classList.add("wbutton-7-focus");
