@@ -52,7 +52,7 @@
             }
             :root {
                 --window-body-width: 320px;
-                --window-body-height: 238px;
+                --window-body-height: 323px;
                 --wbutton-body-width: 136px;
                 --wbutton-body-width-xl: 292px;
                 --wbutton-body-height: 32px;
@@ -238,6 +238,10 @@
             .bottomtext .title {
                 font-weight: bold;
             }
+            .inter-title {
+                margin-top: -1px;
+                margin-bottom: 8px;
+            }
             a#dontletmeleave {
                 cursor: default;
             }
@@ -343,6 +347,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="inter-title">웹 프로젝트</div>
                             <div>
                                 <div class="wbutton" data-target="t" onclick="gotoSite('t');">
                                     <div class="wbutton-scan">
@@ -354,6 +359,27 @@
                                         <div class="wbutton-piece wbutton-4"></div>
                                         <div class="wbutton-piece wbutton-5-xl">
                                             <div class="wbutton-content" tabindex="0">시누의 잡동사니 도구들(<span class="accelerator">T</span>)</div>
+                                        </div>
+                                        <div class="wbutton-piece wbutton-6"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-1"></div>
+                                        <div class="wbutton-piece wbutton-2-xl"></div>
+                                        <div class="wbutton-piece wbutton-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="wbutton" data-target="a" onclick="gotoSite('a');">
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-7"></div>
+                                        <div class="wbutton-piece wbutton-8-xl"></div>
+                                        <div class="wbutton-piece wbutton-9"></div>
+                                    </div>
+                                    <div class="wbutton-scan">
+                                        <div class="wbutton-piece wbutton-4"></div>
+                                        <div class="wbutton-piece wbutton-5-xl">
+                                            <div class="wbutton-content" tabindex="0">AI 무인 커뮤니티(<span class="accelerator">A</span>)</div>
                                         </div>
                                         <div class="wbutton-piece wbutton-6"></div>
                                     </div>
@@ -460,6 +486,7 @@
                     case "i": window.location.href = "https://www.instagram.com/just4" + thething; break;
                     case "b": window.location.href = "/blog/"; break;
                     case "t": window.location.href = "/sinutools/"; break;
+                    case "a": window.location.href = "https://autocomm.sinu.pe.kr"; break;
                     default: break;
                 }
             }
