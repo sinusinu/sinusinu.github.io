@@ -54,6 +54,7 @@
                 --window-body-width: 320px;
                 --wbutton-body-width: 136px;
                 --wbutton-body-width-xl: 292px;
+                --wbutton-body-width-xs: 84px;
             }
             html {
                 margin: 0;
@@ -82,7 +83,7 @@
             .window {
                 display: flex;
                 flex-direction: column;
-                font-size: 22px;
+                font-size: 20px;
                 color: black;
                 image-rendering: pixelated;
             }
@@ -113,7 +114,7 @@
             }
             .window-title {
                 text-align: left;
-                padding-top: 10px;
+                padding-top: 12px;
                 padding-left: 5px;
                 padding-right: 5px;
                 font-weight: bold;
@@ -158,6 +159,9 @@
             .wbutton-8-xl { background-image: url('b8.webp'); width: var(--wbutton-body-width-xl); height: 6px; }
             .wbutton-5-xl { background-image: url('b5.webp'); width: var(--wbutton-body-width-xl); }
             .wbutton-2-xl { background-image: url('b2.webp'); width: var(--wbutton-body-width-xl); height: 6px; }
+            .wbutton-8-xs { background-image: url('b8.webp'); width: var(--wbutton-body-width-xs); height: 6px; }
+            .wbutton-5-xs { background-image: url('b5.webp'); width: var(--wbutton-body-width-xs); }
+            .wbutton-2-xs { background-image: url('b2.webp'); width: var(--wbutton-body-width-xs); height: 6px; }
             .wbutton-7-active { background-image: url('bp7.webp') !important; }
             .wbutton-8-active { background-image: url('bp8.webp') !important; }
             .wbutton-9-active { background-image: url('bp9.webp') !important; }
@@ -230,8 +234,18 @@
                 margin-top: -1px;
                 margin-bottom: 8px;
             }
+            .inter-footer {
+                margin-top: 8px;
+                margin-bottom: -1px;
+                font-size: 14px;
+            }
             a#dontletmeleave {
                 cursor: default;
+            }
+            .appico {
+                width: auto;
+                height: 40px;
+                image-rendering: auto !important;
             }
             .speen {
                 animation: spin 3s linear forwards;
@@ -284,11 +298,12 @@
                     <div class="window-piece window-5">
                         <div class="window-content">
                             <div class="window-hpane bspacer">
-                                <div><img id="cathead" style="width: 64px; height: 64px;" src="icon.webp" draggable="false" onpointerdown="speen();"></div>
-                                <div id="hello" class="window-hpane-primary window-hpane-label">반가워요!</div>
+                                <div><img id="cathead" style="width: 56px; height: 56px;" src="icon.webp" draggable="false" onpointerdown="speen();"></div>
+                                <div id="hello" class="window-hpane-primary window-hpane-label">&lt;-돈없는백수</div>
                             </div>
+                            <div class="inter-title">하는것</div>
                             <div class="wbutton-container">
-                                <a class="wbutton-a" href="https://github.com/sinusinu/">
+                                <a class="wbutton-a" title="별이46개!!" href="https://github.com/sinusinu/">
                                     <div class="wbutton rspacer">
                                         <div class="wbutton-scan">
                                             <div class="wbutton-piece wbutton-7"></div>
@@ -309,7 +324,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="wbutton-a" href="https://instagram.com/just4sinu/">
+                                <a class="wbutton-a" title="요즘 누가 인스타를 이렇게 하냐" href="https://instagram.com/just4sinu/">
                                     <div class="wbutton">
                                         <div class="wbutton-scan">
                                             <div class="wbutton-piece wbutton-7"></div>
@@ -332,7 +347,7 @@
                                 </a>
                             </div>
                             <div>
-                                <a class="wbutton-a" href="https://sinu.pe.kr/blog/">
+                                <a class="wbutton-a" title="메챠쿠챠 방치중" href="https://sinu.pe.kr/blog/">
                                     <div class="wbutton">
                                         <div class="wbutton-scan">
                                             <div class="wbutton-piece wbutton-7"></div>
@@ -354,9 +369,186 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="inter-title">웹 프로젝트</div>
+                            <div class="inter-title">만든것 – Android</div>
+                            <div class="wbutton-container">
+                                <a class="wbutton-a" title="Molla 런처" href="https://github.com/sinusinu/Molla">
+                                    <div class="wbutton rspacer">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8-xs"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5-xs">
+                                                <div class="wbutton-content"><img src="molla.webp" class="appico"></div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2-xs"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="wbutton-a" title="팔랑 - 간단한 메모 작성" href="https://github.com/sinusinu/Pallang">
+                                    <div class="wbutton rspacer">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8-xs"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5-xs">
+                                                <div class="wbutton-content"><img src="pallang.webp" class="appico"></div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2-xs"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="wbutton-a" title="Uranus 음악 플레이어" href="https://github.com/sinusinu/Uranus">
+                                    <div class="wbutton">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8-xs"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5-xs">
+                                                <div class="wbutton-content"><img src="uranus.webp" class="appico"></div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2-xs"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="inter-title">만든것 – C#</div>
+                            <div class="wbutton-container">
+                                <a class="wbutton-a" title="Tenta - WinForms OTP 클라이언트" href="https://github.com/sinusinu/Tenta">
+                                    <div class="wbutton rspacer">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5">
+                                                <div class="wbutton-content">Tenta</div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="wbutton-a" title="Flora - 게임 개발 프레임워크" href="https://github.com/sinusinu/Flora">
+                                    <div class="wbutton">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5">
+                                                <div class="wbutton-content">Flora</div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="inter-title">만든것 – itch.io</div>
+                            <div class="wbutton-container">
+                                <a class="wbutton-a" title="Shatter" href="https://sinusinu.itch.io/shatter">
+                                    <div class="wbutton rspacer">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8-xs"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5-xs">
+                                                <div class="wbutton-content"><img src="shatter.webp" class="appico"></div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2-xs"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="wbutton-a" title="Mt. Ribbit" href="https://sinusinu.itch.io/mtribbit">
+                                    <div class="wbutton rspacer">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8-xs"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5-xs">
+                                                <div class="wbutton-content"><img src="mtribbit.webp" class="appico"></div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2-xs"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="wbutton-a" title="Campfire" href="https://sinusinu.itch.io/campfire">
+                                    <div class="wbutton">
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-7"></div>
+                                            <div class="wbutton-piece wbutton-8-xs"></div>
+                                            <div class="wbutton-piece wbutton-9"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-4"></div>
+                                            <div class="wbutton-piece wbutton-5-xs">
+                                                <div class="wbutton-content"><img src="campfire.webp" class="appico"></div>
+                                            </div>
+                                            <div class="wbutton-piece wbutton-6"></div>
+                                        </div>
+                                        <div class="wbutton-scan">
+                                            <div class="wbutton-piece wbutton-1"></div>
+                                            <div class="wbutton-piece wbutton-2-xs"></div>
+                                            <div class="wbutton-piece wbutton-3"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="inter-title">만든것 – Web</div>
                             <div>
-                                <a class="wbutton-a" href="https://sinu.pe.kr/sinutools/">
+                                <a class="wbutton-a" title="시누의 잡동사니 도구들 - 필요할 때마다 만든 시답잖은 웹앱 컬렉션" href="https://sinu.pe.kr/sinutools/">
                                     <div class="wbutton">
                                         <div class="wbutton-scan">
                                             <div class="wbutton-piece wbutton-7"></div>
@@ -379,7 +571,7 @@
                                 </a>
                             </div>
                             <div>
-                                <a class="wbutton-a" href="https://sinu.pe.kr/sinutoys/">
+                                <a class="wbutton-a" title="시누의 장난감 상자 - 작고 빠른 웹게임 컬렉션" href="https://sinu.pe.kr/sinutoys/">
                                     <div class="wbutton">
                                         <div class="wbutton-scan">
                                             <div class="wbutton-piece wbutton-7"></div>
@@ -401,6 +593,7 @@
                                     </div>
                                 </a>
                             </div>
+                            <div class="inter-footer">만드는 즐거움을 잊지 말기</div>
                         </div>
                     </div>
                     <div class="window-piece window-6"></div>
@@ -417,8 +610,8 @@
             빌드 69f446f<br>
             이 웹사이트는 정품이 아닙니다.
         </div>
-        <audio src="stomp.ogg" id="stomp" crossorigin="anonymous" style="visibility: collapse;"></audio>
-        <audio src="ouch.ogg" id="ouch" crossorigin="anonymous" style="visibility: collapse;"></audio>
+        <audio src="stomp.ogg" id="stomp" style="visibility: collapse;"></audio>
+        <audio src="ouch.ogg" id="ouch" style="visibility: collapse;"></audio>
         <script>
             var buttons = document.getElementsByClassName("wbutton");
             for (var i = 0; i < buttons.length; i++) {
