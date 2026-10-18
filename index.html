@@ -234,16 +234,16 @@
                 cursor: default;
             }
             .speen {
-                animation: spin 4s linear forwards;
+                animation: spin 3s linear forwards;
             }
             @keyframes spin {
                 0% {
-                    transform: rotateZ(-360deg) scaleX(100%) scaleY(100%);
+                    transform: rotateZ(-360deg) scaleX(140%) scaleY(90%);
                     opacity: 100%;
                 }
 
-                15% {
-                    transform: rotateZ(-360deg) scaleX(160%) scaleY(120%);
+                25% {
+                    transform: rotateZ(-360deg) scaleX(140%) scaleY(90%);
                     opacity: 100%;
                 }
 
@@ -412,6 +412,8 @@
             빌드 69f446f<br>
             이 웹사이트는 정품이 아닙니다.
         </div>
+        <audio src="stomp.ogg" id="stomp" crossorigin="anonymous" style="visibility: collapse;"></audio>
+        <audio src="ouch.ogg" id="ouch" crossorigin="anonymous" style="visibility: collapse;"></audio>
         <script>
             var buttons = document.getElementsByClassName("wbutton");
             for (var i = 0; i < buttons.length; i++) {
@@ -487,6 +489,10 @@
                 // cathead.offsetWidth;
                 cathead.classList.add("speen");
                 document.getElementById("hello").innerText = "";
+                document.getElementById("stomp").play();
+                window.setTimeout(() => {
+                    document.getElementById("ouch").play();
+                }, 750);
             }
         </script>
     </body>
