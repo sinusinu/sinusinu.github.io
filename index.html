@@ -608,7 +608,6 @@
             이 웹사이트는 정품이 아닙니다.
         </div>
         <audio src="stomp.ogg" id="stomp" style="visibility: collapse;"></audio>
-        <audio src="ouch.ogg" id="ouch" style="visibility: collapse;"></audio>
         <script>
             var buttons = document.getElementsByClassName("wbutton");
             for (var i = 0; i < buttons.length; i++) {
@@ -685,9 +684,6 @@
                 cathead.classList.add("speen");
                 document.getElementById("hello").innerText = "";
                 document.getElementById("stomp").play();
-                window.setTimeout(() => {
-                    document.getElementById("ouch").play();
-                }, 750);
             }
         </script>
     </body>
