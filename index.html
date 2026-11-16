@@ -93,6 +93,11 @@
                 color: var(--color-fg);
                 text-decoration-thickness: 2px;
             }
+            .fakelink {
+                color: var(--color-fg);
+                cursor: pointer;
+                text-decoration: 2px var(--color-fg) underline;
+            }
             @keyframes pop {
                 from {
                     opacity: 0%;
@@ -179,7 +184,7 @@
                     lines[ 8].innerHTML = '<a href="https://www.instagram.com/just4sinu/">Instagram &gt;</a>';
                     lines[ 9].innerHTML = '<a href="https://sinu.pe.kr/blog/">시누의 블로그 &gt;</a>';
                     lines[10].innerHTML = '&nbsp;';
-                    lines[11].innerHTML = '<a href="#" onclick="nextPage()">더 보기 &gt;</a><span class="cursor">–</span>';
+                    lines[11].innerHTML = '<span class="fakelink" onclick="nextPage()">더 보기 &gt;</span><span class="cursor">–</span>';
                 } else if (page == 1) {
                     lines[ 0].innerHTML = '● Android';
                     lines[ 1].innerHTML = '<a href="https://play.google.com/store/apps/details?id=com.sinu.molla">Molla 런처 &gt;</a>';
@@ -192,7 +197,7 @@
                     lines[ 8].innerHTML = '&nbsp;';
                     lines[ 9].innerHTML = '&nbsp;';
                     lines[10].innerHTML = '&nbsp;';
-                    lines[11].innerHTML = '<a href="#" onclick="nextPage()">돌아가기 &gt;</a><span class="cursor">–</span>';
+                    lines[11].innerHTML = '<span class="fakelink" onclick="nextPage()">돌아가기 &gt;</span><span class="cursor">–</span>';
                 }
                 for (var i = 0; i < 12; i++) lines[i].classList.add("animate");
             }
