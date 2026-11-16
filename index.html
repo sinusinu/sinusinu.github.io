@@ -5,56 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="favicon.png" type="image/png"/>
 		<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon"/>
-        <link rel="preload" as="image" href="1.webp">
-        <link rel="preload" as="image" href="2.webp">
-        <link rel="preload" as="image" href="3.webp">
-        <link rel="preload" as="image" href="4.webp">
-        <link rel="preload" as="image" href="5.webp">
-        <link rel="preload" as="image" href="6.webp">
-        <link rel="preload" as="image" href="7.webp">
-        <link rel="preload" as="image" href="8.webp">
-        <link rel="preload" as="image" href="8t.webp">
-        <link rel="preload" as="image" href="8x.webp">
-        <link rel="preload" as="image" href="8xp.webp">
-        <link rel="preload" as="image" href="9.webp">
-        <link rel="preload" as="image" href="b1.webp">
-        <link rel="preload" as="image" href="b2.webp">
-        <link rel="preload" as="image" href="b3.webp">
-        <link rel="preload" as="image" href="b4.webp">
-        <link rel="preload" as="image" href="b5.webp">
-        <link rel="preload" as="image" href="b6.webp">
-        <link rel="preload" as="image" href="b7.webp">
-        <link rel="preload" as="image" href="b8.webp">
-        <link rel="preload" as="image" href="b9.webp">
-        <link rel="preload" as="image" href="ba1.webp">
-        <link rel="preload" as="image" href="ba2.webp">
-        <link rel="preload" as="image" href="ba3.webp">
-        <link rel="preload" as="image" href="ba4.webp">
-        <link rel="preload" as="image" href="ba6.webp">
-        <link rel="preload" as="image" href="ba7.webp">
-        <link rel="preload" as="image" href="ba8.webp">
-        <link rel="preload" as="image" href="ba9.webp">
-        <link rel="preload" as="image" href="bp1.webp">
-        <link rel="preload" as="image" href="bp2.webp">
-        <link rel="preload" as="image" href="bp3.webp">
-        <link rel="preload" as="image" href="bp4.webp">
-        <link rel="preload" as="image" href="bp6.webp">
-        <link rel="preload" as="image" href="bp7.webp">
-        <link rel="preload" as="image" href="bp8.webp">
-        <link rel="preload" as="image" href="bp9.webp">
         <title>시누의 싸이버스페이스</title>
         <style>
+            @import url("https://cdn.jsdelivr.net/gh/MonadABXY/limgul-font@main/limgul.css");
             @font-face {
-                font-family: 'Pretendard-Regular';
-                src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+                font-family: 'ThinMulmaru';
+                src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/2607161321@thinmulmaru/thinmulmaru/ThinMulmaru.woff2') format('woff2');
                 font-weight: 400;
-                font-style: normal;
+                font-display: swap;
             }
             :root {
-                --window-body-width: 320px;
-                --wbutton-body-width: 136px;
-                --wbutton-body-width-xl: 292px;
-                --wbutton-body-width-xs: 84px;
+                --color-bg: rgb(33, 33, 33);
+                --color-fg: rgb(248, 248, 248);
             }
             html {
                 margin: 0;
@@ -67,9 +29,9 @@
                 width: 100dvw;
                 height: 100dvh;
                 overflow: hidden;
-                background: #3a6ea6;
-                color: white;
-                font-family: 'Pretendard', sans-serif;
+                background: var(--color-bg);
+                color: var(--color-fg);
+                font-family: 'ThinMulmaru', monospace;
                 text-align: center;
                 user-select: none;
             }
@@ -80,611 +42,161 @@
                 justify-content: center;
                 flex-direction: column;
             }
-            .window {
-                display: flex;
-                flex-direction: column;
-                font-size: 18px;
-                color: black;
-                image-rendering: pixelated;
-            }
-            .window-scan {
-                display: flex;
-                flex-direction: row;
-                margin: auto;
-            }
-            .window-piece {
-                display: block;
-            }
-            .window-7 { background-image: url('7.webp'); width: 6px; height: 44px; }
-            .window-9 { background-image: url('9.webp'); width: 6px; height: 44px; }
-            .window-4 { background-image: url('4.webp'); width: 6px;                      background-size: 100% 100%; }
-            .window-5 { background-image: url('5.webp'); width: var(--window-body-width); background-size: 100% 100%; }
-            .window-6 { background-image: url('6.webp'); width: 6px;                      background-size: 100% 100%; }
-            .window-1 { background-image: url('1.webp'); width: 6px; height: 6px; }
-            .window-2 { background-image: url('2.webp'); width: var(--window-body-width); height: 6px; }
-            .window-3 { background-image: url('3.webp'); width: 6px; height: 6px; }
-            .window-title-container {
-                width: var(--window-body-width); height: 44px;
-                display: flex;
-            }
-            .window-vbicon {
-                width: 34px;
-                height: 44px;
-                background-image: url('8t.webp');
-            }
-            .window-title {
+            .texty {
+                width: 100dvw;
+                max-width: 300px;
                 text-align: left;
-                padding-top: 13px;
-                padding-left: 5px;
-                padding-right: 5px;
-                font-weight: bold;
-                color: white;
-                background-image: url('8.webp'); 
-                background-size: 100% 100%;
-                flex-grow: 1;
+                font-size: 24px;
+                text-shadow: 2px 2px 0 var(--color-bg), 3px 3px 0 var(--color-bg);
+                line-height: 1.2;
             }
-            @media (orientation: portrait) {
-                .window-title {
-                    padding-top: 9px;
-                }
+            .lines {
+                opacity: 0%;
             }
-            .window-closebutton {
-                width: 36px;
-                height: 44px;
-                background-image: url('8x.webp');
+            .cursor {
+                color: transparent;
+                text-shadow: none;
+                animation: 1s infinite step-end cursor;
             }
-            .window-content {
-                text-align: left;
-                padding: 8px;
-            }
-            .wbutton {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 8px;
-            }
-            .wbutton-scan {
-                display: flex;
-                flex-direction: row;
-                margin: auto;
-            }
-            .wbutton-7 { background-image: url('b7.webp'); width: 6px; height: 6px; }
-            .wbutton-8 { background-image: url('b8.webp'); width: var(--wbutton-body-width); height: 6px; }
-            .wbutton-9 { background-image: url('b9.webp'); width: 6px; height: 6px; }
-            .wbutton-4 { background-image: url('b4.webp'); width: 6px;                       background-size: 100% 100%; }
-            .wbutton-5 { background-image: url('b5.webp'); width: var(--wbutton-body-width); background-size: 100% 100%; }
-            .wbutton-6 { background-image: url('b6.webp'); width: 6px;                       background-size: 100% 100%; }
-            .wbutton-1 { background-image: url('b1.webp'); width: 6px; height: 6px; }
-            .wbutton-2 { background-image: url('b2.webp'); width: var(--wbutton-body-width); height: 6px; }
-            .wbutton-3 { background-image: url('b3.webp'); width: 6px; height: 6px; }
-            .wbutton-8-xl { background-image: url('b8.webp'); width: var(--wbutton-body-width-xl); height: 6px; }
-            .wbutton-5-xl { background-image: url('b5.webp'); width: var(--wbutton-body-width-xl); }
-            .wbutton-2-xl { background-image: url('b2.webp'); width: var(--wbutton-body-width-xl); height: 6px; }
-            .wbutton-8-xs { background-image: url('b8.webp'); width: var(--wbutton-body-width-xs); height: 6px; }
-            .wbutton-5-xs { background-image: url('b5.webp'); width: var(--wbutton-body-width-xs); }
-            .wbutton-2-xs { background-image: url('b2.webp'); width: var(--wbutton-body-width-xs); height: 6px; }
-            .wbutton-7-active { background-image: url('bp7.webp') !important; }
-            .wbutton-8-active { background-image: url('bp8.webp') !important; }
-            .wbutton-9-active { background-image: url('bp9.webp') !important; }
-            .wbutton-4-active { background-image: url('bp4.webp') !important; }
-            .wbutton-6-active { background-image: url('bp6.webp') !important; }
-            .wbutton-1-active { background-image: url('bp1.webp') !important; }
-            .wbutton-2-active { background-image: url('bp2.webp') !important; }
-            .wbutton-3-active { background-image: url('bp3.webp') !important; }
-            .wbutton-7-focus { background-image: url('ba7.webp'); }
-            .wbutton-8-focus { background-image: url('ba8.webp'); }
-            .wbutton-9-focus { background-image: url('ba9.webp'); }
-            .wbutton-4-focus { background-image: url('ba4.webp'); }
-            .wbutton-6-focus { background-image: url('ba6.webp'); }
-            .wbutton-1-focus { background-image: url('ba1.webp'); }
-            .wbutton-2-focus { background-image: url('ba2.webp'); }
-            .wbutton-3-focus { background-image: url('ba3.webp'); }
-            .wbutton-content {
-                border: 2px solid transparent;
-                text-align: center;
-            }
-            @media (orientation: portrait) {
-                .wbutton-content {
-                    margin-top: 1px;
-                }
-            }
-            .wbutton-content-focusdot {
-                border: 2px dotted black;
-                box-sizing: border-box;
-                text-align: center;
-                outline: none;
-            }
-            .wbutton-container {
-                display: flex;
-                flex-direction: row;
-            }
-            .window-hpane {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-            }
-            .window-hpane-primary {
-                flex-grow: 1;
-            }
-            .window-hpane-label {
-                padding: 12px;
-                line-height: 25px;
-            }
-            .rspacer {
-                margin-right: 8px;
-            }
-            .bspacer {
-                margin-bottom: 4px;
-            }
-            .accelerator {
-                text-decoration: underline 2px;
-            }
-            .bottomtext {
-                position: absolute;
-                right: 8px;
-                bottom: 8px;
-                color: white;
-                text-align: right;
-                z-index: -1;
-            }
-            .bottomtext .title {
-                font-weight: bold;
-            }
-            .inter-title {
-                margin-top: -1px;
-                margin-bottom: 8px;
-            }
-            .inter-footer {
-                margin-top: 8px;
-                margin-bottom: -1px;
-                font-size: 14px;
-            }
-            a#dontletmeleave {
-                cursor: default;
-            }
-            .appico {
-                width: auto;
-                height: 40px;
-                image-rendering: auto !important;
-            }
-            .speen {
-                animation: spin 3s linear forwards;
-            }
-            @keyframes spin {
+            @keyframes cursor {
                 0% {
-                    transform: rotateZ(-360deg) scaleX(140%) scaleY(90%);
-                    opacity: 100%;
+                    box-shadow: 2px 2px 0 var(--color-bg), 3px 3px 0 var(--color-bg);
+                    background-color: var(--color-fg);
                 }
-
-                25% {
-                    transform: rotateZ(-360deg) scaleX(140%) scaleY(90%);
-                    opacity: 100%;
+                50% {
+                    box-shadow: none;
+                    background-color: transparent;
                 }
-
-                35% {
-                    transform: rotateZ(-360deg) scaleX(180%) scaleY(110%);
-                    opacity: 100%;
-                }
-
                 100% {
-                    transform: rotateZ(0deg) scaleX(0%) scaleY(0%);
+                    box-shadow: 2px 2px 0 var(--color-bg), 3px 3px 0 var(--color-bg);
+                    background-color: var(--color-fg);
+                }
+            }
+            .animate {
+                opacity: 0%;
+                animation: 1s forwards step-start pop;
+            }
+            .animate:nth-child( 1) { animation-delay: 0.10s; }
+            .animate:nth-child( 2) { animation-delay: 0.11s; }
+            .animate:nth-child( 3) { animation-delay: 0.12s; }
+            .animate:nth-child( 4) { animation-delay: 0.13s; }
+            .animate:nth-child( 5) { animation-delay: 0.14s; }
+            .animate:nth-child( 6) { animation-delay: 0.15s; }
+            .animate:nth-child( 7) { animation-delay: 0.16s; }
+            .animate:nth-child( 8) { animation-delay: 0.17s; }
+            .animate:nth-child( 9) { animation-delay: 0.18s; }
+            .animate:nth-child(10) { animation-delay: 0.19s; }
+            .animate:nth-child(11) { animation-delay: 0.20s; }
+            .animate:nth-child(12) { animation-delay: 0.21s; }
+            .texty a {
+                color: var(--color-fg);
+                text-decoration-thickness: 2px;
+            }
+            @keyframes pop {
+                from {
                     opacity: 0%;
                 }
+                to {
+                    opacity: 100%;
+                }
             }
-            a {
-                color: black;
-                text-decoration: none;
-                cursor: default;
-                outline: none;
+            .backdrop-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100dvw;
+                height: 100dvh;
+                perspective: 100dvh;
+                z-index: -1;
+                overflow: hidden;
             }
-            a:active { color: black; }
-            a:visited { color: black; }
+            .backdrop {
+                width: 150dvh;
+                height: 150dvh;
+                opacity: 30%;
+                translate: -25dvh -30dvh;
+                animation: 12s infinite linear backdrop-anim;
+                image-rendering: pixelated;
+            }
+            @keyframes backdrop-anim {
+                from {
+                    transform: rotate3d(-1, 0.35, 0, 60deg) rotateZ(0deg);
+                }
+                to {
+                    transform: rotate3d(-1, 0.35, 0, 60deg) rotateZ(360deg);
+                }
+            }
         </style>
     </head>
     <body>
         <div id="container" class="container">
-            <div class="window">
-                <div class="window-scan">
-                    <div class="window-piece window-7"></div>
-                    <div class="window-piece window-8 window-title-container">
-                        <div class="window-vbicon"></div>
-                        <div class="window-title">시누의 싸이버스페이스</div>
-                        <a tabindex="-1" href="https://www.youtube.com/watch?v=GIUhpzv47YQ" rel="noreferrer" draggable="false" id="dontletmeleave"><div id="window-closebutton" class="window-closebutton"></div></a>
-                    </div>
-                    <div class="window-piece window-9"></div>
-                </div>
-                <div class="window-scan">
-                    <div class="window-piece window-4"></div>
-                    <div class="window-piece window-5">
-                        <div class="window-content">
-                            <div class="window-hpane bspacer">
-                                <div><img id="cathead" style="width: 48px; height: 48px;" src="icon.webp" draggable="false" onpointerdown="speen();"></div>
-                                <div id="hello" class="window-hpane-primary window-hpane-label">&lt;-돈없는백수</div>
-                            </div>
-                            <div class="inter-title">하는것</div>
-                            <div class="wbutton-container">
-                                <a class="wbutton-a" title="별이46개!!" href="https://github.com/sinusinu/">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5">
-                                                <div class="wbutton-content">GitHub</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="요즘 누가 인스타를 이렇게 하냐" href="https://instagram.com/just4sinu/">
-                                    <div class="wbutton">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5">
-                                                <div class="wbutton-content">Instagram</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a class="wbutton-a" title="메챠쿠챠 방치중" href="https://sinu.pe.kr/blog/">
-                                    <div class="wbutton">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xl"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xl">
-                                                <div class="wbutton-content">시누의 블로그</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xl"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="inter-title">만든것 – Android</div>
-                            <div class="wbutton-container">
-                                <a class="wbutton-a" title="Molla 런처" href="https://play.google.com/store/apps/details?id=com.sinu.molla">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xs"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xs">
-                                                <div class="wbutton-content"><img src="molla.webp" class="appico"></div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xs"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="팔랑 - 간단한 메모 작성" href="https://play.google.com/store/apps/details?id=com.sinu.pallang">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xs"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xs">
-                                                <div class="wbutton-content"><img src="pallang.webp" class="appico"></div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xs"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="Uranus 음악 플레이어" href="https://play.google.com/store/apps/details?id=kr.pe.sinu.uranus">
-                                    <div class="wbutton">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xs"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xs">
-                                                <div class="wbutton-content"><img src="uranus.webp" class="appico"></div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xs"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="inter-title">만든것 – C#</div>
-                            <div class="wbutton-container">
-                                <a class="wbutton-a" title="Tenta - WinForms OTP 클라이언트" href="https://github.com/sinusinu/Tenta">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5">
-                                                <div class="wbutton-content">Tenta</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="Flora - 게임 개발 프레임워크" href="https://github.com/sinusinu/Flora">
-                                    <div class="wbutton">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5">
-                                                <div class="wbutton-content">Flora</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="inter-title">만든것 – itch.io</div>
-                            <div class="wbutton-container">
-                                <a class="wbutton-a" title="Shatter" href="https://sinusinu.itch.io/shatter">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xs"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xs">
-                                                <div class="wbutton-content"><img src="shatter.webp" class="appico"></div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xs"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="Mt. Ribbit" href="https://sinusinu.itch.io/mtribbit">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xs"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xs">
-                                                <div class="wbutton-content"><img src="mtribbit.webp" class="appico"></div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xs"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="Campfire" href="https://sinusinu.itch.io/campfire">
-                                    <div class="wbutton">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8-xs"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5-xs">
-                                                <div class="wbutton-content"><img src="campfire.webp" class="appico"></div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2-xs"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="inter-title">만든것 – Web</div>
-                            <div class="wbutton-container">
-                                <a class="wbutton-a" title="시누의 잡동사니 도구들 - 필요할 때마다 만든 시답잖은 웹앱 컬렉션" href="https://sinu.pe.kr/sinutools/">
-                                    <div class="wbutton rspacer">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5">
-                                                <div class="wbutton-content">시잡도</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="wbutton-a" title="시누의 장난감 상자 - 작고 빠른 웹게임 컬렉션" href="https://sinu.pe.kr/sinutoys/">
-                                    <div class="wbutton">
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-7"></div>
-                                            <div class="wbutton-piece wbutton-8"></div>
-                                            <div class="wbutton-piece wbutton-9"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-4"></div>
-                                            <div class="wbutton-piece wbutton-5">
-                                                <div class="wbutton-content">시장상</div>
-                                            </div>
-                                            <div class="wbutton-piece wbutton-6"></div>
-                                        </div>
-                                        <div class="wbutton-scan">
-                                            <div class="wbutton-piece wbutton-1"></div>
-                                            <div class="wbutton-piece wbutton-2"></div>
-                                            <div class="wbutton-piece wbutton-3"></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="window-piece window-6"></div>
-                </div>
-                <div class="window-scan">
-                    <div class="window-piece window-1"></div>
-                    <div class="window-piece window-2"></div>
-                    <div class="window-piece window-3"></div>
-                </div>
+            <div class="texty">
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
+                <div class="lines animate"></div>
             </div>
         </div>
-        <div class="bottomtext">
-            <span class="title">시누의 싸이버스페이스</span><br>
-            빌드 69f446f<br>
-            이 웹사이트는 정품이 아닙니다.
+        <div class="backdrop-container">
+            <img src="favicon.png" class="backdrop">
         </div>
-        <audio src="stomp.ogg" id="stomp" style="visibility: collapse;"></audio>
         <script>
-            var buttons = document.getElementsByClassName("wbutton");
-            for (var i = 0; i < buttons.length; i++) {
-                const button = buttons[i];
-                button.addEventListener("pointerdown", (ev) => { effectPressButton(button); });
-                button.addEventListener("pointerup", (ev) => { effectReleaseButton(button); });
-                button.addEventListener("pointerleave", (ev) => { effectReleaseButton(button); });
-            }
-            var buttonAs = document.getElementsByClassName("wbutton-a");
-            for (var i = 0; i < buttonAs.length; i++) {
-                const buttonA = buttonAs[i];
-                buttonA.addEventListener("focus", (ev) => { effectFocusButton(buttonA.children[0]); });
-                buttonA.addEventListener("blur", (ev) => { effectBlurButton(buttonA.children[0]); effectReleaseButton(buttonA.children[0]); });
-                buttonA.addEventListener("keydown", (ev) => { if (ev.key === " " || ev.key === "Enter") effectPressButton(buttonA.children[0]); });
-                buttonA.addEventListener("keyup", (ev) => { if (ev.key === " " || ev.key === "Enter") { effectReleaseButton(buttonA).children[0]; }});
-            }
-            var closebutton = document.getElementById("window-closebutton");
-            closebutton.addEventListener("pointerdown", (ev) => { closebutton.style.backgroundImage = "url('8xp.webp')"; });
-            closebutton.addEventListener("pointerup", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
-            closebutton.addEventListener("pointerleave", (ev) => { closebutton.style.backgroundImage = "url('8x.webp')"; });
+            const randomQuotes = [
+                ["이정도면 디자인", "괜찮지 않나?"],
+                ["누가 웹디자인을", "이따구로 함?"],
+            ];
+            var quoteIndex = Math.floor(Math.random() * randomQuotes.length);
 
-            function effectFocusButton(parentNode) {
-                parentNode.children[0].children[0].classList.add("wbutton-7-focus");
-                parentNode.children[0].children[1].classList.add("wbutton-8-focus");
-                parentNode.children[0].children[2].classList.add("wbutton-9-focus");
-                parentNode.children[1].children[0].classList.add("wbutton-4-focus");
-                parentNode.children[1].children[1].children[0].classList.remove("wbutton-content");
-                parentNode.children[1].children[1].children[0].classList.add("wbutton-content-focusdot");
-                parentNode.children[1].children[2].classList.add("wbutton-6-focus");
-                parentNode.children[2].children[0].classList.add("wbutton-1-focus");
-                parentNode.children[2].children[1].classList.add("wbutton-2-focus");
-                parentNode.children[2].children[2].classList.add("wbutton-3-focus");
-            }
+            const lines = document.getElementsByClassName("lines");
+            var page = -1;
 
-            function effectBlurButton(parentNode) {
-                parentNode.children[0].children[0].classList.remove("wbutton-7-focus");
-                parentNode.children[0].children[1].classList.remove("wbutton-8-focus");
-                parentNode.children[0].children[2].classList.remove("wbutton-9-focus");
-                parentNode.children[1].children[0].classList.remove("wbutton-4-focus");
-                parentNode.children[1].children[1].children[0].classList.add("wbutton-content");
-                parentNode.children[1].children[1].children[0].classList.remove("wbutton-content-focusdot");
-                parentNode.children[1].children[2].classList.remove("wbutton-6-focus");
-                parentNode.children[2].children[0].classList.remove("wbutton-1-focus");
-                parentNode.children[2].children[1].classList.remove("wbutton-2-focus");
-                parentNode.children[2].children[2].classList.remove("wbutton-3-focus");
-            }
-
-            function effectPressButton(parentNode) {
-                parentNode.children[0].children[0].classList.add("wbutton-7-active");
-                parentNode.children[0].children[1].classList.add("wbutton-8-active");
-                parentNode.children[0].children[2].classList.add("wbutton-9-active");
-                parentNode.children[1].children[0].classList.add("wbutton-4-active");
-                parentNode.children[1].children[2].classList.add("wbutton-6-active");
-                parentNode.children[2].children[0].classList.add("wbutton-1-active");
-                parentNode.children[2].children[1].classList.add("wbutton-2-active");
-                parentNode.children[2].children[2].classList.add("wbutton-3-active");
+            function nextPage() {
+                page++; if (page >= 2) page = 0;
+                for (var i = 0; i < 12; i++) {
+                    lines[i].classList.remove("animate");
+                    lines[i].offsetWidth;
+                }
+                if (page == 0) {
+                    const randomQuote = randomQuotes[quoteIndex];
+                    quoteIndex++; if (quoteIndex >= randomQuotes.length) quoteIndex = 0;
+                    lines[ 0].innerHTML = '시누의';
+                    lines[ 1].innerHTML = '싸이버스페이스';
+                    lines[ 2].innerHTML = '© 2025-2026 sinu';
+                    lines[ 3].innerHTML = '&nbsp;';
+                    lines[ 4].innerHTML = randomQuote[0];
+                    lines[ 5].innerHTML = randomQuote[1];
+                    lines[ 6].innerHTML = '&nbsp;';
+                    lines[ 7].innerHTML = '<a href="https://github.com/sinusinu/">GitHub &gt;</a>';
+                    lines[ 8].innerHTML = '<a href="https://www.instagram.com/just4sinu/">Instagram &gt;</a>';
+                    lines[ 9].innerHTML = '<a href="https://sinu.pe.kr/blog/">시누의 블로그 &gt;</a>';
+                    lines[10].innerHTML = '&nbsp;';
+                    lines[11].innerHTML = '<a href="#" onclick="nextPage()">더 보기 &gt;</a><span class="cursor">–</span>';
+                } else if (page == 1) {
+                    lines[ 0].innerHTML = '● Android';
+                    lines[ 1].innerHTML = '<a href="https://play.google.com/store/apps/details?id=com.sinu.molla">Molla 런처 &gt;</a>';
+                    lines[ 2].innerHTML = '<a href="https://play.google.com/store/apps/details?id=com.sinu.pallang">팔랑 - 간단한 메모 작성 &gt;</a>';
+                    lines[ 3].innerHTML = '<a href="https://play.google.com/store/apps/details?id=kr.pe.sinu.uranus">Uranus 음악 플레이어 &gt;</a>';
+                    lines[ 4].innerHTML = '&nbsp;';
+                    lines[ 5].innerHTML = '● Web';
+                    lines[ 6].innerHTML = '<a href="https://sinu.pe.kr/sinutools/">시누의 잡동사니 도구들 &gt;</a>';
+                    lines[ 7].innerHTML = '<a href="https://sinu.pe.kr/sinutoys/">시누의 장난감 상자 &gt;</a>';
+                    lines[ 8].innerHTML = '&nbsp;';
+                    lines[ 9].innerHTML = '&nbsp;';
+                    lines[10].innerHTML = '&nbsp;';
+                    lines[11].innerHTML = '<a href="#" onclick="nextPage()">돌아가기 &gt;</a><span class="cursor">–</span>';
+                }
+                for (var i = 0; i < 12; i++) lines[i].classList.add("animate");
             }
 
-            function effectReleaseButton(parentNode) {
-                parentNode.children[0].children[0].classList.remove("wbutton-7-active");
-                parentNode.children[0].children[1].classList.remove("wbutton-8-active");
-                parentNode.children[0].children[2].classList.remove("wbutton-9-active");
-                parentNode.children[1].children[0].classList.remove("wbutton-4-active");
-                parentNode.children[1].children[2].classList.remove("wbutton-6-active");
-                parentNode.children[2].children[0].classList.remove("wbutton-1-active");
-                parentNode.children[2].children[1].classList.remove("wbutton-2-active");
-                parentNode.children[2].children[2].classList.remove("wbutton-3-active");
-            }
-
-            function speen() {
-                var cathead = document.getElementById("cathead");
-                // cathead.classList.remove("speen");
-                // cathead.offsetWidth;
-                cathead.classList.add("speen");
-                document.getElementById("hello").innerText = "";
-                document.getElementById("stomp").play();
-            }
+            nextPage();
         </script>
     </body>
 </html>
